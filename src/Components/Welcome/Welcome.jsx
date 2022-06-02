@@ -1,8 +1,15 @@
 import './Welcome.css'
-import {NavLink} from "react-router-dom";
+import btLogo from '../../images/bootstrap-icon-css.png'
+import reactLogo from '../../images/react.png'
+import reduxLogo from '../../images/redux-logo.png'
+import cssLogo from '../../images/css.png'
+import htmlLogo from '../../images/html.png'
+import jsLogo from '../../images/js-logo.png'
+
+
 const Welcome = ({}) => {
     let className = "inverted";
-    let scrollTrigger = 60;
+    let scrollTrigger = 10;
 
     window.onscroll = function() {
         // We add pageYOffset for compatibility with IE.
@@ -21,7 +28,7 @@ const Welcome = ({}) => {
                   <button className={"btn btn-outline-primary btn-lg"}>Sign in</button>
               </div>
           </header>
-          <div className={'content-body'}>
+          <section className={'content-body'}>
               <img className={'main-img'} src={'https://friendkit.cssninja.io/assets/img/illustrations/characters/friends.svg'}/>
               <div className={'description'}>
                   <h2>Friends</h2>
@@ -30,8 +37,34 @@ const Welcome = ({}) => {
                       <button className={"get-started-button"}>Get started</button>
                   </div>
               </div>
-          </div>
-
+          </section>
+          <footer className={'footer'}>
+              <div className={'name-tech'}>
+                  <h1>
+                      Technologies
+                  </h1>
+              </div>
+              <div className={'techs'}>
+                <div className={'tech-logo'}>
+                    <img src={btLogo}/>
+                </div>
+                <div className={'tech-logo'}>
+                    <img src={reactLogo}/>
+                </div>
+                <div className={'tech-logo'}>
+                    <img src={reduxLogo}/>
+                </div>
+                <div className={'tech-logo'}>
+                    <img src={cssLogo}/>
+                </div>
+                <div className={'tech-logo'}>
+                    <img src={htmlLogo}/>
+                </div>
+                  <div className={'tech-logo'}>
+                    <img src={jsLogo}/>
+                </div>
+              </div>
+          </footer>
       </div>
   )
 }

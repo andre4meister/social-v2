@@ -86,3 +86,22 @@ header {
      box-shadow: 0 3px 5px 0.3px rgba(0,0,0,0.1);
 }
 
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.techs {
+    display: flex;
+    justify-content: center;
+}
+.tech-logo {
+    margin: 3vh;
+}
+.tech-logo img{
+    width: 10vh;
+}
+.name-tech h1 {
+    text-align: center;
+}
