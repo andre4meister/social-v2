@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {
     BrowserRouter as Router,
@@ -6,7 +5,7 @@ import {
     Routes,
 } from "react-router-dom";
 import Welcome from "./Components/Welcome/Welcome";
-import Login from "./Components/Login/Login";
+import LoginContainer from "./Components/Login/Login";
 
 function App() {
     return (
@@ -15,7 +14,7 @@ function App() {
                 <Routes>
                     <Route path={'/'} element={<Welcome/>}/>
                     <Route path={'/news'} element={<h1>News</h1>}/>
-                    <Route path={'/login'} element={<Login/>}/>
+                    <Route path={'/login'} element={<LoginContainer/>}/>
                 </Routes>
             </Router>
         </div>

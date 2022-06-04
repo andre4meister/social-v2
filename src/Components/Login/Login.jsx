@@ -1,5 +1,10 @@
-import './Login.css'
+import './Login.css';
+import {getUserData} from "../../Redux/authReducer";
+import {connect} from "react-redux";
+
+
 const Login = ({}) => {
+
   return (
       <div className={'login-container'}>
         <div className={'form'}>
@@ -15,7 +20,7 @@ const Login = ({}) => {
                 </div>
             </div>
             <div className={'login-item'}>
-                <button className={'sign-in'}>SIGN IN</button>
+                <button onClick={getUserData()} className={'sign-in'}>SIGN IN</button>
             </div>
             <div className={'login-item'}>
                 <p>Forgot <a href={'/#'}>Username / Password?</a></p>
@@ -25,4 +30,16 @@ const Login = ({}) => {
       </div>
   )
 }
-export default Login;
+const mstp = (state) => {
+  return {
+      state: state,
+  }
+}
+const LoginContainer = (props) => {
+    console.log(props);
+    getUserData()
+  return (
+      <Login isAuth={props.state}/>
+  )
+}
+export default connect(mstp, {getUserData})(LoginContainer)

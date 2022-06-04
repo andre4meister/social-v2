@@ -5,6 +5,7 @@ import reduxLogo from '../../images/redux-logo.png'
 import cssLogo from '../../images/css.png'
 import htmlLogo from '../../images/html.png'
 import jsLogo from '../../images/js-logo.png'
+import { useNavigate } from "react-router-dom";
 
 
 const Welcome = ({}) => {
@@ -19,12 +20,19 @@ const Welcome = ({}) => {
             document.getElementsByTagName("header")[0].classList.remove(className);
         }
     };
+
+    let navigate = useNavigate();
+    const onClickLogin = () => {
+        let path = '/login'
+        navigate(path)
+    }
+
   return (
       <div className={'welcome-container'}>
           <header className={'header'}>
               <img className={'logo-img'} src={'https://friendkit.cssninja.io/assets/img/logo/friendkit-bold.svg'}/>
               <div className={'buttons'}>
-                  <button className={"btn btn-link btn-lg"}>Login</button>
+                  <button onClick={onClickLogin} className={"btn btn-link btn-lg"}>Login</button>
                   <button className={"btn btn-outline-primary btn-lg"}>Sign in</button>
               </div>
           </header>
