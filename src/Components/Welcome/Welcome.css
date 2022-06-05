@@ -32,6 +32,7 @@
 .content-body {
     display: flex;
     justify-content: center;
+    z-index: 4;
 }
 .description {
     margin-left: 8vh;
@@ -79,6 +80,7 @@ header {
     position: fixed;
     text-align: center;
     top: 0;
+    z-index: 10;
 }
 
 .inverted {

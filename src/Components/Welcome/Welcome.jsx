@@ -1,19 +1,13 @@
-import './Welcome.css'
-import btLogo from '../../images/bootstrap-icon-css.png'
-import reactLogo from '../../images/react.png'
-import reduxLogo from '../../images/redux-logo.png'
-import cssLogo from '../../images/css.png'
-import htmlLogo from '../../images/html.png'
-import jsLogo from '../../images/js-logo.png'
-import { useNavigate } from "react-router-dom";
+
+import {useNavigate} from "react-router-dom";
+import Technology from "./Technologies/Technologies";
 
 
-const Welcome = ({}) => {
+const Welcome = () => {
     let className = "inverted";
     let scrollTrigger = 10;
 
     window.onscroll = function() {
-        // We add pageYOffset for compatibility with IE.
         if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
             document.getElementsByTagName("header")[0].classList.add(className);
         } else {
@@ -22,22 +16,20 @@ const Welcome = ({}) => {
     };
 
     let navigate = useNavigate();
-    const onClickLogin = () => {
-        let path = '/login'
-        navigate(path)
-    }
+    let loginPath = '/login';
+    let signUpPath = 'https://social-network.samuraijs.com/signUp'
 
   return (
       <div className={'welcome-container'}>
           <header className={'header'}>
-              <img className={'logo-img'} src={'https://friendkit.cssninja.io/assets/img/logo/friendkit-bold.svg'}/>
+              <img className={'logo-img'} alt={'Friends'} src={'https://friendkit.cssninja.io/assets/img/logo/friendkit-bold.svg'}/>
               <div className={'buttons'}>
-                  <button onClick={onClickLogin} className={"btn btn-link btn-lg"}>Login</button>
-                  <button className={"btn btn-outline-primary btn-lg"}>Sign in</button>
+                  <button onClick={() => navigate(loginPath)} className={"btn btn-link btn-lg"}>Login</button>
+                  <button onClick={() => window.location.replace(signUpPath)} className={"btn btn-outline-primary btn-lg"}>Sign up</button>
               </div>
           </header>
           <section className={'content-body'}>
-              <img className={'main-img'} src={'https://friendkit.cssninja.io/assets/img/illustrations/characters/friends.svg'}/>
+              <img className={'main-img'} alt={'main-friends'} src={'https://friendkit.cssninja.io/assets/img/illustrations/characters/friends.svg'}/>
               <div className={'description'}>
                   <h2>Friends</h2>
                   <p>Place where you can meet a friend, or maybe someone better...</p>
@@ -52,26 +44,7 @@ const Welcome = ({}) => {
                       Technologies
                   </h1>
               </div>
-              <div className={'techs'}>
-                <div className={'tech-logo'}>
-                    <img src={btLogo}/>
-                </div>
-                <div className={'tech-logo'}>
-                    <img src={reactLogo}/>
-                </div>
-                <div className={'tech-logo'}>
-                    <img src={reduxLogo}/>
-                </div>
-                <div className={'tech-logo'}>
-                    <img src={cssLogo}/>
-                </div>
-                <div className={'tech-logo'}>
-                    <img src={htmlLogo}/>
-                </div>
-                  <div className={'tech-logo'}>
-                    <img src={jsLogo}/>
-                </div>
-              </div>
+                  <Technology/>
           </footer>
       </div>
   )

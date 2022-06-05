@@ -1,11 +1,16 @@
 import './Login.css';
-import {getUserData} from "../../Redux/authReducer";
+import {getUserData, login, logout} from "../../Redux/authReducer";
 import {connect} from "react-redux";
+import {useEffect, useState} from "react";
 
 
-const Login = ({}) => {
+const Login = (props) => {
+    const[email, setEmail] = useState('');
+    const[password, setPassword] = useState('');
+    const [rememberMe, changeRememberMe] = useState(false)
 
-  return (
+    return (
+
       <div className={'login-container'}>
         <div className={'form'}>
             <div className={'login-item'}>
@@ -13,14 +18,24 @@ const Login = ({}) => {
             </div>
             <div className={'login-item input-container'}>
                 <div>
-                    <input className={'input'} placeholder={'Email'} type={'email'}/>
+                    <input value={email} onChange={(e)=> setEmail(e.target.value)}
+                           className={'input'} placeholder={'Email'} type={'email'}/>
                 </div>
                 <div>
-                    <input className={'input'} placeholder={'Password'}type={'password'}/>
+                    <input value={password}  onChange={(e)=> setPassword(e.target.value)}
+                           className={'input'} placeholder={'Password'}type={'password'}/>
+                </div>
+                <div>
+                    <input value={rememberMe}  onChange={(e)=> changeRememberMe(e.target.checked)}
+                           className={'remember'} type={'checkbox'}/>
+                    <span>Remember me</span>
                 </div>
             </div>
             <div className={'login-item'}>
-                <button onClick={getUserData()} className={'sign-in'}>SIGN IN</button>
+                <button onClick={()=> {
+                    props.login(email, password, rememberMe, '');
+                    console.log(email, password, rememberMe);
+                }} className={'sign-in'}>SIGN IN</button>
             </div>
             <div className={'login-item'}>
                 <p>Forgot <a href={'/#'}>Username / Password?</a></p>
@@ -32,14 +47,25 @@ const Login = ({}) => {
 }
 const mstp = (state) => {
   return {
-      state: state,
+      isAuth: state.auth.isAuth,
+      userId: state.auth.userId,
+      userLogin: state.auth.login,
   }
-}
+};
+
 const LoginContainer = (props) => {
-    console.log(props);
-    getUserData()
+    useEffect( () => {
+        alert('rerender')
+    },[props.isAuth])
   return (
-      <Login isAuth={props.state}/>
+      <Login getUserData={props.getUserData}
+             isAuth={props.isAuth}
+             userId={props.userId}
+             userLogin={props.userLogin}
+             login={props.login}
+             logout={props.logout}
+
+      />
   )
 }
-export default connect(mstp, {getUserData})(LoginContainer)
+export default connect(mstp, {getUserData, login, logout})(LoginContainer)
