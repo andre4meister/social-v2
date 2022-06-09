@@ -1,0 +1,61 @@
+$primary-color: white;
+$secondary-color: #d9d6d6;
+
+@mixin white-elements($theme: primary-color) {
+  background: $theme;
+  display: flex;
+}
+.header-main {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: row;
+  width: 100vw;
+  height: 12vh;
+  background-color: $primary-color;
+  color: #2a2a2a;
+  box-shadow: 1px 1px 7px 1px #9d9d9d;
+}
+.logo {
+  width: 4vw;
+}
+.logo-and-name {
+  margin-left: 1vw;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  h2 {
+    position: relative;
+    top: 3vh;
+  }
+}
+.search {
+  input {
+    width: 34vw;
+    height: 6vh;
+    background-color: #daeefe;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    position: relative;
+    top: 3vh;
+  }
+}
+.profile-photo-login {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 14vw;
+  position: relative;
+  top: 2vh;
+  p {
+    position: relative;
+    top: 2vh;
+
+  }
+
+}
+.profile-photo {
+  width: 4vw;
+  height: 4vw;
+  margin-right: 1vw;
+}

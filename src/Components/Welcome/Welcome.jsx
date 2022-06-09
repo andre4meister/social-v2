@@ -34,7 +34,8 @@ const Welcome = () => {
                   <h2>Friends</h2>
                   <p>Place where you can meet a friend, or maybe someone better...</p>
                   <div className={'get-started-container'}>
-                      <button className={"get-started-button"}>Get started</button>
+                      <button onClick={() => window.location.replace(signUpPath)}
+                              className={"get-started-button"}>Get started</button>
                   </div>
               </div>
           </section>

@@ -2,21 +2,26 @@ import './App.css';
 import {
     BrowserRouter as Router,
     Route,
-    Routes,
+    Routes, useLocation,
 } from "react-router-dom";
 import Welcome from "./Components/Welcome/Welcome";
 import LoginContainer from "./Components/Login/Login";
+import ProfileContainer from "./Components/Profile/ProfileContainer";
+import HeaderContainer from "./Components/Header/HeaderContainer";
+import PageNotFound from "./Components/PageNotFound/PageNotFound";
 
 function App() {
+    const location = useLocation();
+
     return (
         <div className="App">
-            <Router>
+                { location.pathname !== '/'  && location.pathname !=='/login' && <HeaderContainer/>}
                 <Routes>
                     <Route path={'/'} element={<Welcome/>}/>
-                    <Route path={'/news'} element={<h1>News</h1>}/>
                     <Route path={'/login'} element={<LoginContainer/>}/>
+                    <Route path={'/profile/:userId'} element={<ProfileContainer/>}/>
+                    <Route path="*" element={<PageNotFound/>} />
                 </Routes>
-            </Router>
         </div>
     );
 }

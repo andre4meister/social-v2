@@ -2,6 +2,7 @@ import './Login.css';
 import {getUserData, login, logout} from "../../Redux/authReducer";
 import {connect} from "react-redux";
 import {useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 const Login = (props) => {
@@ -34,12 +35,11 @@ const Login = (props) => {
             <div className={'login-item'}>
                 <button onClick={()=> {
                     props.login(email, password, rememberMe, '');
-                    console.log(email, password, rememberMe);
                 }} className={'sign-in'}>SIGN IN</button>
             </div>
             <div className={'login-item'}>
                 <p>Forgot <a href={'/#'}>Username / Password?</a></p>
-                <p>Create an account?<a href={'/#'}> Sign up</a></p>
+                <p>Create an account?<a href={'https://social-network.samuraijs.com/signUp'}> Sign up</a></p>
             </div>
         </div>
       </div>
@@ -56,7 +56,11 @@ const mstp = (state) => {
 const LoginContainer = (props) => {
     useEffect( () => {
         alert('rerender')
-    },[props.isAuth])
+    },[props.isAuth]);
+
+    const profileRedirect = useNavigate()
+    if (props.isAuth) profileRedirect('/profile');
+
   return (
       <Login getUserData={props.getUserData}
              isAuth={props.isAuth}
@@ -64,7 +68,6 @@ const LoginContainer = (props) => {
              userLogin={props.userLogin}
              login={props.login}
              logout={props.logout}
-
       />
   )
 }
