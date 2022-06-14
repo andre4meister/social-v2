@@ -1,5 +1,5 @@
 import './Login.css';
-import {getUserData, login, logout} from "../../Redux/authReducer";
+import {getAuthUserData, login, logout} from "../../Redux/authReducer";
 import {connect} from "react-redux";
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
@@ -62,7 +62,7 @@ const LoginContainer = (props) => {
     if (props.isAuth) profileRedirect('/profile');
 
   return (
-      <Login getUserData={props.getUserData}
+      <Login getAuthUserData={props.getAuthUserData}
              isAuth={props.isAuth}
              userId={props.userId}
              userLogin={props.userLogin}
@@ -71,4 +71,4 @@ const LoginContainer = (props) => {
       />
   )
 }
-export default connect(mstp, {getUserData, login, logout})(LoginContainer)
+export default connect(mstp, {getAuthUserData, login, logout})(LoginContainer)

@@ -17,9 +17,7 @@ const Header = (props) => {
               <div className={'profile-photo-login'}>
                 <img className={'profile-photo'} alt={'my-profile-photo'}
                      src={'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/user/11.png'}/>
-                  <div>
-                      <p>{props.login}</p>
-                  </div>
+                  {props.login && <button className="btn btn-primary" onClick={() => props.logout()}>Logout</button>}
               </div>
           </header>
   )

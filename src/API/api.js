@@ -19,3 +19,19 @@ export const authAPI = {
     },
 
 }
+
+export const profileAPI = {
+    getUserProfile(userId) {
+        return instance.get(`profile/${userId}`)
+    },
+    getUserStatus(userId) {
+        return instance.get(`profile/status/${userId}`)
+    },
+
+}
+
+export const usersAPI = {
+    getUsers(currentPage=1, count = 10) {
+        return instance.get(`users?page=${currentPage}?count=${count}`)
+    },
+}

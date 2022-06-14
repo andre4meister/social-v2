@@ -1,5 +1,6 @@
 import Header from "./Header";
 import {connect} from "react-redux";
+import {logout} from "../../Redux/authReducer";
 
 const HeaderContainer = (props) => {
   return (
@@ -13,4 +14,4 @@ const mstp = (state) => {
         login: state.auth.login,
     }
 }
-export default connect(mstp,{})(HeaderContainer) ;
+export default connect(mstp,{logout})(HeaderContainer) ;
