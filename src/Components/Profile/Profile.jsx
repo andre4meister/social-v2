@@ -1,12 +1,9 @@
 import './Profile.scss';
-import NavSidebar from "../Sidebars/NavSidebar";
-import FriendsSidebar from "../Sidebars/FriendsSidebar";
-
 
 
 const Profile = (props) => {
   return (
-      <div className={'profile-container'}>
+      <div className={'content-container'}>
           <div className={'profile-info'}>
               <img className={'large-photo'} alt={'big-photo'}
                    src={'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/page-img/profile-bg1.jpg'}/>
@@ -31,8 +28,6 @@ const Profile = (props) => {
                   </div>
               </div>
           </div>
-          <NavSidebar {...props}/>
-          <FriendsSidebar {...props}/>
       </div>
   )
 }

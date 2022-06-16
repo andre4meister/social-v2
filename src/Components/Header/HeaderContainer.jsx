@@ -1,8 +1,13 @@
 import Header from "./Header";
 import {connect} from "react-redux";
-import {logout} from "../../Redux/authReducer";
+import {getAuthUserData, logout} from "../../Redux/authReducer";
+import {useEffect} from "react";
 
 const HeaderContainer = (props) => {
+    useEffect( ()=> {
+        props.getAuthUserData();
+    }, []);
+
   return (
       <div>
           <Header {...props}/>
@@ -14,4 +19,4 @@ const mstp = (state) => {
         login: state.auth.login,
     }
 }
-export default connect(mstp,{logout})(HeaderContainer) ;
+export default connect(mstp,{logout, getAuthUserData})(HeaderContainer) ;

@@ -1,22 +1,21 @@
-import './App.css';
+import './App.scss';
 import {
-    BrowserRouter as Router,
     Route,
     Routes, useLocation,
 } from "react-router-dom";
 import Welcome from "./Components/Welcome/Welcome";
 import LoginContainer from "./Components/Login/Login";
 import ProfileContainer from "./Components/Profile/ProfileContainer";
-import HeaderContainer from "./Components/Header/HeaderContainer";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import UsersContainer from "./Components/Users/UsersContainer";
+import Bars from "./Components/Sidebars/Bars";
 
 function App() {
     const location = useLocation();
 
     return (
-        <div className="App">
-                { location.pathname !== '/'  && location.pathname !=='/login' && <HeaderContainer/>}
+        <div className="app-container">
+                { location.pathname !== '/'  && location.pathname !=='/login' && <Bars/>}
                 <Routes>
                     <Route path={'/'} element={<Welcome/>}/>
                     <Route path={'/login'} element={<LoginContainer/>}/>
