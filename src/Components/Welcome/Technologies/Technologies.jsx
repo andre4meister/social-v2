@@ -1,4 +1,4 @@
-import '../Welcome.css'
+import '../Welcome.scss'
 import btLogo from '../../../images/bootstrap-icon-css.png'
 import reactLogo from '../../../images/react.png'
 import reduxLogo from '../../../images/redux-logo.png'

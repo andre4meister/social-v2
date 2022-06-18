@@ -1,17 +1,25 @@
 import Users from "./Users";
-import {setUsers} from "../../Redux/users-reducer";
+import {follow, setCurrentPageSuccess, setUsers, unfollow} from "../../Redux/users-reducer";
 import {useEffect} from "react";
 import {connect} from "react-redux";
 import Paginator from "./Paginator/Paginator";
 
 const UsersContainer = (props) => {
+    const onPageChanged = (page) => {
+        props.setUsers(page, props.count);
+        props.setCurrentPageSuccess(page);
+    }
     useEffect( () => {
-        props.setUsers(props.currentPage, props.count)
+        props.setUsers(props.currentPage, props.count);
     }, [])
     return (
         <>
             <Users {...props}></Users>
-            <Paginator totalCount={props.totalCount} count={props.count} currentPage={props.currentPage}/>
+            <Paginator
+                totalCount={props.totalCount}
+                count={props.count}
+                currentPage={props.currentPage}
+                onPageChanged={onPageChanged}/>
         </>
     )
 }
@@ -23,4 +31,4 @@ const mstp = (state) => {
         totalCount: state.users.totalCount,
     }
 }
-export default connect(mstp, {setUsers})(UsersContainer) ;
+export default connect(mstp, {setUsers, setCurrentPageSuccess, follow, unfollow})(UsersContainer) ;

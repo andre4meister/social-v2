@@ -8,10 +8,12 @@
   border-radius: 6px;
   min-height: 8vmax;
   background-color: white;
-  img {
-    grid-column: 2/3;
-    width: 6vmax;
-    height: 6vmax;
+  a {
+    img {
+      grid-column: 2/3;
+      width: 6vmax;
+      height: 6vmax;
+    }
   }
   h2 {
     font-size: 2vmax;

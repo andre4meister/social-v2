@@ -17,6 +17,7 @@ const HeaderContainer = (props) => {
 const mstp = (state) => {
     return {
         login: state.auth.login,
+        authUserId: state.auth.userId,
     }
 }
 export default connect(mstp,{logout, getAuthUserData})(HeaderContainer) ;

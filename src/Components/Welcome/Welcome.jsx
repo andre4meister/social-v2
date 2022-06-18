@@ -1,4 +1,4 @@
-
+import './Welcome.scss';
 import {useNavigate} from "react-router-dom";
 import Technology from "./Technologies/Technologies";
 

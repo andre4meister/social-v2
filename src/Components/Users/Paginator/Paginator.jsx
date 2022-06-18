@@ -9,8 +9,10 @@ const Paginator = (props) => {
     return (
       <ul className={'pagination justify-content-center'}>
           {pages.map( (p) => {
-              if(p < 10 || p === pages.length - 1) {
-                  return <li className={ (p === props.currentPage) ? 'page-item active' : 'page-item'}>
+              if((p < props.currentPage && p > props.currentPage-5)|| (p > props.currentPage && p < props.currentPage+5 )
+                  || p === pages.length - 1 || p === props.currentPage || p === 1) {
+                  return <li className={ (p === props.currentPage) ? 'page-item active' : 'page-item'}
+                  onClick={() => props.onPageChanged(p)}>
                       {p}
                   </li>
               }

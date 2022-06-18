@@ -39,7 +39,7 @@ $secondary-color: #d9d6d6;
     top: 3vh;
   }
 }
-.profile-photo-login {
+.profile-login {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -49,9 +49,4 @@ $secondary-color: #d9d6d6;
   button {
     height: 6vh;
   }
-}
-.profile-photo {
-  width: 4vw;
-  height: 4vw;
-  margin-right: 1vw;
 }

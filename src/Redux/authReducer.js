@@ -33,14 +33,12 @@ export const login = (email,password, rememberMe = false, captcha = '') => async
     let response = await authAPI.login(email,password, rememberMe, captcha)
     if (response.data.resultCode === 0) {
         dispatch(getAuthUserData());
-        alert('loginSuccess')
     }
 }
 export const logout = () => async (dispatch) => {
     let response = await authAPI.logout()
     if (response.data.resultCode === 0) {
         dispatch(setUserData(null, null,null, false));
-        alert('logoutSuccess');
     }
 }
 

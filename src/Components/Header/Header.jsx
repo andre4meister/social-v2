@@ -14,9 +14,7 @@ const Header = (props) => {
               <div className={'search'}>
                 <input type={'text'} placeholder={'Search here...'} className={'search-input'}/>
               </div>
-              <div className={'profile-photo-login'}>
-                <img className={'profile-photo'} alt={'my-profile-photo'}
-                     src={'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/user/11.png'}/>
+              <div className={'profile-login'}>
                   {props.login && <button className="btn btn-primary" onClick={() => props.logout()}>Logout</button>}
               </div>
           </header>
