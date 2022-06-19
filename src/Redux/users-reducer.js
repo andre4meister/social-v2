@@ -66,11 +66,12 @@ const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId})
 export const setCurrentPageSuccess = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
 
 
-export const setUsers = (currentPage, count) => async (dispatch) => {
-    let response = await usersAPI.getUsers(currentPage, count);
+export const setUsers = (currentPage, count, friend) => async (dispatch) => {
+    let response = await usersAPI.getUsers(currentPage, count, friend);
     dispatch(setUsersSuccess(response.data.items));
     dispatch(setTotalCountSuccess(response.data.totalCount));
 }
+
 export const follow = (userId) => async (dispatch) => {
     let response = await usersAPI.follow(userId);
     if (response.data.resultCode === 0) {

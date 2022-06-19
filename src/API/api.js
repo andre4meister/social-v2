@@ -31,13 +31,20 @@ export const profileAPI = {
 }
 
 export const usersAPI = {
-    getUsers(currentPage= 1, count = 10) {
-        return instance.get(`users?page=${currentPage}&count=${count}`)
+    getUsers(currentPage= 1, count = 10, friend = false) {
+        return instance.get(`users?page=${currentPage}&count=${count}&friend=${friend}`)
     },
     follow(userId) {
         return instance.post(`follow/${userId}`)
     },
     unfollow(userId) {
         return instance.delete(`follow/${userId}`)
+    }
+}
+export const photoAPI = {
+    uploadPhoto(file) {
+        return axios.post('https://api.imgbb.com/1/upload?key=b6c9353a8e5850fd36926163fd5f9c78',{file},{
+            withCredentials: true,
+        })
     }
 }

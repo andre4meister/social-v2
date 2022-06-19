@@ -1,8 +1,10 @@
-import {profileAPI} from "../API/api";
+import {photoAPI, profileAPI} from "../API/api";
 
 const GET_USER_PROFILE ='GET_USER_PROFILE';
 const GET_USER_STATUS = 'GET_USER_STATUS';
 const CREATE_NEW_POST = 'CREATE_NEW_POST';
+const DELETE_POST = 'DELETE_POST';
+
 
 const initialState = {
     posts: [
@@ -29,6 +31,9 @@ const ProfileReducer = (state = initialState, action) => {
         case CREATE_NEW_POST: {
             return {...state, posts: [action.newPost, ...state.posts]}
         }
+        case DELETE_POST: {
+            return {...state, posts: state.posts.filter( p => p.id !== action.postId)}
+        }
         default:
             return state;
     }
@@ -36,6 +41,8 @@ const ProfileReducer = (state = initialState, action) => {
 export const getUserStatusSuccess = (status) => ({ type: GET_USER_STATUS, status });
 export const getUserProfileSuccess = (payload) => ({ type: GET_USER_PROFILE, payload});
 export const createNewPostSuccess = (newPost) => ({type: CREATE_NEW_POST, newPost});
+export const deletePostSuccess = (postId) => ({type: DELETE_POST, postId});
+
 
 export const getUserProfile = (userId) => async (dispatch) => {
     let response = await profileAPI.getUserProfile(userId);
@@ -45,6 +52,18 @@ export const getUserProfile = (userId) => async (dispatch) => {
 export const getUserStatus = (userId) => async (dispatch) => {
     let response = await profileAPI.getUserStatus(userId);
     dispatch(getUserStatusSuccess(response.data));
+}
+export const uploadPostPhoto = (file, id, text, time, likes) => async (dispatch) => {
+    const formData = new FormData();
+    const lastFile = formData.append('lastFile', file);
+    let response = await photoAPI.uploadPhoto(lastFile);
+    if (response.status_code === 200) {
+        dispatch(createNewPostSuccess({id: 6589, text, time, imgUrl: response.image.url, likes}));
+    }
+    else {
+        alert('error')
+    }
+    console.log(response)
 }
 
 export default ProfileReducer;

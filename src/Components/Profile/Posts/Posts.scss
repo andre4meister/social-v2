@@ -29,7 +29,7 @@
   .photo-name {
     margin: 2px 0 0 2vw;
     display: grid;
-    grid-template-columns: minmax(3vw, 7vw)  100px;
+    grid-template-columns: minmax(3vw, 7vw)  15vw 40vw 10vw;
     img {
       border-radius: 100%;
       max-width: 7vw;
@@ -62,7 +62,7 @@
   margin: 0 6vw 4vh 6vw;
   background-color: #ffffff;
   border-radius: 6px;
-  input {
+  .post-text {
     max-width: 68vw;
     background-color: #f8f9fa;
     border-radius: 10px;
@@ -70,6 +70,10 @@
     &:hover {
       background-color: #f0f2f5;
     }
+  }
+  .post-photo {
+    margin: 1vh auto 0 5vw;
+    border: 1px solid transparent;
   }
   button {
     max-height: 5vh;
@@ -84,4 +88,32 @@
       background-color: #125dd0;
     }
   }
+}
+.post-menu {
+  grid-column: 4/5;
+  img {
+    width: 2vw;
+    margin-left: 5vw;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.activeMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  border-radius: 4px;
+  div {
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    padding-left: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+.hiddenMenu {
+  display: none;
 }

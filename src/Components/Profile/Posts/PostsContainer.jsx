@@ -4,7 +4,7 @@ import Posts from "./Posts";
 import NewPost from "./NewPost";
 import './Posts.scss';
 import Preloader from "../../common/Preloader";
-import {createNewPostSuccess} from "../../../Redux/profile-reducer";
+import {deletePostSuccess, uploadPostPhoto} from "../../../Redux/profile-reducer";
 
 const PostsContainer = (props) => {
     if (!props.profileData) {
@@ -12,8 +12,9 @@ const PostsContainer = (props) => {
     }
     return (
         <div className={'posts-container'}>
-            <NewPost createNewPostSuccess={props.createNewPostSuccess}/>
+            <NewPost uploadPostPhoto={props.uploadPostPhoto}/>
             <Posts profileData={props.profileData}
+                   deletePostSuccess={props.deletePostSuccess}
                    posts={props.posts}/>
         </div>
     );
@@ -26,4 +27,4 @@ const mstp = (state) => {
     }
 }
 
-export default connect(mstp, {createNewPostSuccess})(PostsContainer);
+export default connect(mstp, {uploadPostPhoto, deletePostSuccess})(PostsContainer);

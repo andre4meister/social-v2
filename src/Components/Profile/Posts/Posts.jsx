@@ -5,7 +5,9 @@ const Posts = (props) => {
     return (
         <div className={'posts'}>
             {props.posts.map( p => {
-                return <Post p={p} profileData={props.profileData}/>
+                return <Post p={p}
+                             profileData={props.profileData}
+                             deletePostSuccess={props.deletePostSuccess}/>
             })}
         </div>
     );

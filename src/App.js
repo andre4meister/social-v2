@@ -9,6 +9,7 @@ import ProfileContainer from "./Components/Profile/ProfileContainer";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import UsersContainer from "./Components/Users/UsersContainer";
 import Bars from "./Components/Sidebars/Bars";
+import Friends from "./Components/Friends/Friends";
 
 function App() {
     const location = useLocation();
@@ -20,6 +21,7 @@ function App() {
                     <Route path={'/'} element={<Welcome/>}/>
                     <Route path={'/login'} element={<LoginContainer/>}/>
                     <Route path={'/users'} element={<UsersContainer/>}/>
+                    <Route path={'/friends'} element={<Friends/>}/>
                     <Route path={'/profile/:userId'} element={<ProfileContainer/>}/>
                     <Route path="*" element={<PageNotFound/>} />
                 </Routes>
