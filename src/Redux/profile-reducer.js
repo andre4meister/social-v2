@@ -53,17 +53,11 @@ export const getUserStatus = (userId) => async (dispatch) => {
     let response = await profileAPI.getUserStatus(userId);
     dispatch(getUserStatusSuccess(response.data));
 }
-export const uploadPostPhoto = (file, id, text, time, likes) => async (dispatch) => {
-    const formData = new FormData();
-    const lastFile = formData.append('lastFile', file);
-    let response = await photoAPI.uploadPhoto(lastFile);
-    if (response.status_code === 200) {
-        dispatch(createNewPostSuccess({id: 6589, text, time, imgUrl: response.image.url, likes}));
+export const uploadPostPhoto = ( randomId, text, time, likes) => async (dispatch) => {
+    let response = await photoAPI.getPhoto(randomId);
+    if (response.status === 200) {
+        dispatch(createNewPostSuccess({randomId, text, time, imgUrl: response.data[0].url, likes}));
     }
-    else {
-        alert('error')
-    }
-    console.log(response)
 }
 
 export default ProfileReducer;

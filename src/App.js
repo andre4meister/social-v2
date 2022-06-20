@@ -10,11 +10,17 @@ import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import UsersContainer from "./Components/Users/UsersContainer";
 import Bars from "./Components/Sidebars/Bars";
 import Friends from "./Components/Friends/Friends";
+import Preloader from "./Components/common/Preloader";
+import {connect} from "react-redux";
+import {useEffect} from "react";
 
-function App() {
+function App({isFetching}) {
     const location = useLocation();
+    useEffect( () => {
 
-    return (
+    },[isFetching])
+    if (isFetching)  return <Preloader/>
+   return (
         <div className="app-container">
                 { location.pathname !== '/'  && location.pathname !=='/login' && <Bars/>}
                 <Routes>
@@ -29,4 +35,10 @@ function App() {
     );
 }
 
-export default App;
+function mstp(state) {
+    return {
+        isFetching: state.auth.isFetching,
+    }
+}
+
+export default connect(mstp, {})(App);

@@ -6,11 +6,11 @@ import Paginator from "./Paginator/Paginator";
 
 const UsersContainer = (props) => {
     const onPageChanged = (page) => {
-        props.setUsers(page, props.count, false);
+        props.setUsers(page, props.count, false, false);
         props.setCurrentPageSuccess(page);
     }
     useEffect( () => {
-        props.setUsers(props.currentPage, props.count, false);
+        props.setUsers(props.currentPage, props.count, false, false);
     }, [])
     return (
         <>

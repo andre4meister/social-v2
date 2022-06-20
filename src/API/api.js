@@ -42,9 +42,7 @@ export const usersAPI = {
     }
 }
 export const photoAPI = {
-    uploadPhoto(file) {
-        return axios.post('https://api.imgbb.com/1/upload?key=b6c9353a8e5850fd36926163fd5f9c78',{file},{
-            withCredentials: true,
-        })
+    getPhoto(randomId) {
+        return axios.get(`https://jsonplaceholder.typicode.com/photos?id=${randomId}`)
     }
 }

@@ -2,7 +2,7 @@ import Profile from "./Profile";
 import {connect} from "react-redux";
 import {useEffect} from "react";
 import {getAuthUserData,} from "../../Redux/authReducer";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {getUserProfile, getUserStatus} from "../../Redux/profile-reducer";
 import PostsContainer from "./Posts/PostsContainer";
 
@@ -18,20 +18,16 @@ const mstp = (state) => {
     }
 }
 const ProfileContainer = (props) => {
-    let toLogin = useNavigate();
     const params = useParams();
-    useEffect( ()=> {
-        props.getAuthUserData();
-    }, []);
-    useEffect( ()=> {
-        props.getUserProfile(params.userId);
-        props.getUserStatus(params.userId);
-        if (!props.isAuth) {
-            toLogin('/login');
-        }
-    }, [params.userId])
 
-
+    const toLogin = useNavigate();
+    if (!props.isAuth) {
+        toLogin('/login');
+    }
+    useEffect( ()=> {
+            props.getUserProfile(params.userId);
+            props.getUserStatus(params.userId);
+    }, [params])
 
   return (
       <>

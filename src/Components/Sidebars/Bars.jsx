@@ -2,14 +2,28 @@ import FriendsSidebar from "./FriendsSidebar";
 import HeaderContainer from "../Header/HeaderContainer";
 import NavSidebar from "./NavSidebar";
 import '../../App.scss';
-const Bars = () => {
+import {connect} from "react-redux";
+import {setUsers} from "../../Redux/users-reducer";
+import {useEffect} from "react";
+const BarsContainer = ({bestFriends, setUsers}) => {
+    console.log(bestFriends)
+    useEffect( () => {
+        setUsers(1, 7, true, true);
+    }, [])
   return (
       <>
           <HeaderContainer/>
-          <FriendsSidebar/>
+          <FriendsSidebar bestFriends={bestFriends}/>
           <NavSidebar/>
       </>
 
   )
 }
-export default Bars;
+
+function mstp(state) {
+    return {
+        bestFriends: state.users.bestFriends
+    }
+}
+
+export default connect(mstp, {setUsers})(BarsContainer);
