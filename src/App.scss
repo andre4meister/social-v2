@@ -93,5 +93,8 @@ body {
   img {
     width: 3vw;
     border-radius: 100%;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

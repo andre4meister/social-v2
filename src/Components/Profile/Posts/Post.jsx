@@ -29,7 +29,7 @@ const Post = ({p, profileData,deletePostSuccess}) => {
             <div className={'post-text'}>{p.text}</div>
             <div className={'likes'}>
                 <img src={'https://templates.iqonic.design/socialv/bs5/html/dist/assets/images/icon/01.png'}
-                     alt={'likes'} key={p.id*20}/>
+                     alt={'likes'} />
                 <p>{p.likes} likes</p>
             </div>
         </div>

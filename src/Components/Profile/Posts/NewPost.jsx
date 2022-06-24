@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import './Posts.scss';
-import downloadPhoto from '../../../icons/download.png';
-import {uploadPostPhoto} from "../../../Redux/profile-reducer";
-import axios from "axios";
+
 const NewPost = (props) => {
     const [newPostText, setNewPostText] = useState('');
 

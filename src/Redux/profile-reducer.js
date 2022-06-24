@@ -59,5 +59,23 @@ export const uploadPostPhoto = ( randomId, text, time, likes) => async (dispatch
         dispatch(createNewPostSuccess({randomId, text, time, imgUrl: response.data[0].url, likes}));
     }
 }
+export const updateProfileInfo = (objInfo) => async (dispatch, getState) => {
+    console.log(objInfo)
+    let response = await profileAPI.updateProfileInfo(objInfo);
+    if (response.status === 200) {
+        dispatch(getUserProfile(getState().auth.userId));
+       alert('Profile info was successfully updated')
+    } else alert('something bad')
+}
+export const updateProfilePhoto = (objPhoto) => async (dispatch, getState) => {
+    const file = new FormData();
+    file.append("myFile", objPhoto);
+    let response = await profileAPI.updateProfilePhoto(file);
+    console.log(response, response.resultCode)
+    if ( response.data.resultCode === 0) {
+        dispatch(getUserProfile(getState().auth.userId));
+       alert('Profile info was successfully updated')
+    } else alert('something bad')
+}
 
 export default ProfileReducer;

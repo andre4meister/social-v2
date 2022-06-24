@@ -37,14 +37,13 @@ export const getAuthUserData = () => async (dispatch) => {
 }
 export const login = (email,password, rememberMe = false, captcha = '') => async (dispatch) => {
     let response = await authAPI.login(email,password, rememberMe, captcha);
-    console.log(response);
     switch (response.data.resultCode) {
         case 0: {
             dispatch(getAuthUserData());
             break
         }
         case 1: {
-            alert('resultCode 1')
+            alert(response.data.messages)
             console.log(response)
             break
         }
@@ -61,8 +60,5 @@ export const logout = () => async (dispatch) => {
         dispatch(setUserData(null, null,null, false));
     }
 }
-
-
-
 
 export default authReducer;

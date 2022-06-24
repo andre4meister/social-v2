@@ -1,12 +1,22 @@
 import './Welcome.scss';
 import {useNavigate} from "react-router-dom";
 import Technology from "./Technologies/Technologies";
+import {connect} from "react-redux";
+import {useEffect} from "react";
 
 
-const Welcome = () => {
-    let className = "inverted";
-    let scrollTrigger = 10;
+const Welcome = ({isAuth, userId}) => {
+    const navigate = useNavigate();
+    const loginPath = '/login';
+    const signUpPath = 'https://social-network.samuraijs.com/signUp';
 
+    useEffect( () => {
+        if (isAuth) navigate(`/profile/${userId}`);
+    },[isAuth]);
+
+
+    const className = "inverted";
+    const scrollTrigger = 10;
     window.onscroll = function() {
         if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
             document.getElementsByTagName("header")[0].classList.add(className);
@@ -14,10 +24,6 @@ const Welcome = () => {
             document.getElementsByTagName("header")[0].classList.remove(className);
         }
     };
-
-    let navigate = useNavigate();
-    let loginPath = '/login';
-    let signUpPath = 'https://social-network.samuraijs.com/signUp'
 
   return (
       <div className={'welcome-container'}>
@@ -50,4 +56,12 @@ const Welcome = () => {
       </div>
   )
 }
-export default Welcome;
+
+function mstp(state) {
+    return {
+        isAuth: state.auth.isAuth,
+        userId: state.auth.userId,
+    }
+}
+
+export default connect(mstp, {})(Welcome);

@@ -36,6 +36,21 @@
   display: grid;
   grid-template-columns: repeat(3, 2fr);
   grid-template-rows: repeat(3, 4.6vh);
+  .edit-profile {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    width: 2vw;
+    background-color: lightgrey;
+    border-radius: 4px;
+    padding: 1px;
+  }
+  .info-edit {
+    margin: 0 0 0 20vw;
+  }
+  .photo-edit {
+    margin: 0 0 0 23vw;
+    padding: 0;
+  }
 }
 .info-item {
   margin: 0 1vw;
@@ -53,11 +68,20 @@
   grid-column: 3/4;
   grid-row: 1/3;
   display: grid;
-  grid-template-columns: repeat(3, 7vw);
-  grid-template-rows: repeat(2, 4vh);
+  grid-template-columns: 15vw 15vw;
+  grid-template-rows: 4vh 6vh;
   text-align: center;
-  div {
-    max-width: 2.3vw;
+  .status-tag {
+    font-size: 3vh;
+    text-decoration: underline;
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .about-tag {
+    font-size: 3vh;
+    text-decoration: underline;
+    grid-column: 2/3;
+    grid-row: 1/2;
   }
 }
 .login {
@@ -65,4 +89,95 @@
   grid-row: 2/3;
   font-size: 5vh;
   text-align: center;
+}
+.editing-form {
+  padding-bottom: 4px;
+  max-width: 70vw;
+  min-width: 56vw;
+  grid-column: 1/4;
+  grid-row: 1/3;
+  margin: 1vh auto;
+  display: grid;
+  grid-template-columns: 4fr 4fr;
+  grid-template-rows: 1fr 4fr;
+  grid-gap: 1px 5px;
+  justify-content: center;
+  align-content: center;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  h4 {
+    margin: 5px 0 5px 5vw;
+  }
+  button {
+    margin: 3px 0 0 26vw;
+    max-height: 5vh;
+    max-width: 10vw;
+    padding-bottom: 25px;
+    color: white;
+    background-color: #0d6efd;
+    border: 2px solid white;
+    border-radius: 7px;
+    &:hover {
+      background-color: #125dd0;
+    }
+  }
+ .general {
+   grid-column: 1/2;
+   grid-row: 1/2;
+ }
+  .contacts {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  .div {
+    margin-left: 1vw;
+    input {
+      background-color: #d8ecfd;
+      border: none;
+      margin: 3px 1vw;
+      border-radius: 3px;
+    };
+  }
+}
+.editing-photo-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 4px;
+  grid-column: 1/4;
+  grid-row: 1/3;
+  max-width: 70vw;
+  min-width: 70vw;
+  margin: 1vh auto;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: #d8ecfd;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: #c0d5f5;
+}
+.inputfile:focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+.inputfile + label * {
+  pointer-events: none;
 }

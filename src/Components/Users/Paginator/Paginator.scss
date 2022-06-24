@@ -1,12 +1,23 @@
 .pagination {
-  //margin: 12vh auto 1vh auto;
-  z-index: 100;
+  margin: 4px auto;
   height: fit-content;
   width: fit-content;
   border: 1px solid lightgray;
   border-radius: 5px;
   grid-column: 2/3;
   grid-row: 2/3;
+  li {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    img {
+      max-height: 4vh;
+      max-width: 4vh;
+      border-left: 1px solid lightgray;
+      position: relative;
+      top: 3px;
+    }
+  }
 }
 .page-item {
   padding: 4px;
@@ -16,4 +27,7 @@
 .active {
   background-color: #007afe;
   color: white;
+}
+.disabled-arrow {
+  display: none;
 }

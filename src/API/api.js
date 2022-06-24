@@ -27,7 +27,16 @@ export const profileAPI = {
     getUserStatus(userId) {
         return instance.get(`profile/status/${userId}`)
     },
-
+    updateProfileInfo(objInfo) {
+        return instance.put( `profile`, objInfo)
+    },
+    updateProfilePhoto(file) {
+        return instance.put( `profile/photo`, file,  {
+            headers: {
+                'Content-Type': 'multipart/form-Data'
+            }
+        })
+    },
 }
 
 export const usersAPI = {

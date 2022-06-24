@@ -6,7 +6,7 @@ const Users = (props) => {
         follow={props.follow}
         unfollow={props.unfollow}/> )
     return (
-        <div className={'content-container'}>
+        <div className={'content-container users-container'}>
             {usersArray}
         </div>
     )

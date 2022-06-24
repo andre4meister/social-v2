@@ -19,9 +19,9 @@ const NavSidebarContainer = ({userId}) => {
         {icon: settings, id: 204, url: `/settings`},
     ];
     const sidebarItems = icons.map((el, i) => {
-        return <div className={'navbar-item'}>
+        return <div className={'navbar-item'} key={el.id}>
             <NavLink activeClassName={'active'} to={el.url}>
-                <img src={el.icon} key={el.id} alt={`icon-${el.id}`}/>
+                <img src={el.icon} alt={`icon-${el.id}`}/>
             </NavLink>
         </div>
     });

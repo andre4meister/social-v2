@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 import {setUsers} from "../../Redux/users-reducer";
 import {useEffect} from "react";
 const BarsContainer = ({bestFriends, setUsers}) => {
-    console.log(bestFriends)
     useEffect( () => {
         setUsers(1, 7, true, true);
     }, [])
