@@ -55,17 +55,15 @@ export const getUserStatus = (userId) => async (dispatch) => {
 }
 export const uploadPostPhoto = ( randomId, text, time, likes) => async (dispatch) => {
     let response = await photoAPI.getPhoto(randomId);
-    if (response.status === 200) {
+    if (response.data.resultCode === 0) {
         dispatch(createNewPostSuccess({randomId, text, time, imgUrl: response.data[0].url, likes}));
     }
 }
 export const updateProfileInfo = (objInfo) => async (dispatch, getState) => {
-    console.log(objInfo)
     let response = await profileAPI.updateProfileInfo(objInfo);
-    if (response.status === 200) {
+    if (response.data.resultCode === 0) {
         dispatch(getUserProfile(getState().auth.userId));
-       alert('Profile info was successfully updated')
-    } else alert('something bad')
+    }
 }
 export const updateProfilePhoto = (objPhoto) => async (dispatch, getState) => {
     const file = new FormData();

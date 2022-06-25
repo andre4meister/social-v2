@@ -3,15 +3,8 @@ import myFriends from "../../icons/user.png";
 import users from "../../icons/users-alt.svg";
 import settings from "../../icons/settings.svg";
 import {NavLink} from "react-router-dom";
-import {connect} from "react-redux";
 
-
-const mstp = (state) => {
-    return {
-        userId: state.auth.userId,
-    }
-}
-const NavSidebarContainer = ({userId}) => {
+const NavSidebar = ({userId}) => {
     const icons = [
         {icon: home, id: 201, url: `/profile/${userId}`},
         {icon: myFriends, id: 202, url: `/friends`},
@@ -35,7 +28,7 @@ const NavSidebarContainer = ({userId}) => {
 
 
 
-export default connect(mstp, {})(NavSidebarContainer);
+export default NavSidebar;
 
 
 

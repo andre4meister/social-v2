@@ -1,13 +1,13 @@
 import React from 'react';
 import Post from "./Post";
 
-const Posts = (props) => {
+const Posts = ({profileData,posts,deletePostSuccess}) => {
     return (
         <div className={'posts'}>
-            {props.posts.map( p => {
+            {posts.map( p => {
                 return <Post p={p}
-                             profileData={props.profileData}
-                             deletePostSuccess={props.deletePostSuccess}/>
+                             profileData={profileData}
+                             deletePostSuccess={deletePostSuccess}/>
             })}
         </div>
     );

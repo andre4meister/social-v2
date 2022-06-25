@@ -5,7 +5,7 @@ import {useState} from "react";
 import { useNavigate} from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-const Login = (props) => {
+const Login = ({login}) => {
     const[email, setEmail] = useState('');
     const[password, setPassword] = useState('');
     const [rememberMe, changeRememberMe] = useState(false);
@@ -15,7 +15,7 @@ const Login = (props) => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = () => {
         console.log(errors);
-        props.login(email, password, rememberMe, '');
+        login(email, password, rememberMe, '');
     }
 
     return (
@@ -51,9 +51,6 @@ const Login = (props) => {
                     onSubmit();
                 }} className={'sign-in'}>SIGN IN</button>
             </div>
-            {/*<div className={'login-item'}>*/}
-            {/*    <p>Create an account?<a href={'https://social-network.samuraijs.com/signUp'}> Sign up</a></p>*/}
-            {/*</div>*/}
         </form>
       </div>
   )
@@ -62,20 +59,15 @@ const mstp = (state) => {
   return {
       isAuth: state.auth.isAuth,
       userId: state.auth.userId,
-      userLogin: state.auth.login,
   }
 };
 
-const LoginContainer = (props) => {
+const LoginContainer = ({isAuth,userId,login}) => {
     const profileRedirect = useNavigate()
-    if (props.isAuth) profileRedirect(`/profile/${props.userId}`);
+    if (isAuth) profileRedirect(`/profile/${userId}`);
 
   return (
-      <Login isAuth={props.isAuth}
-             userId={props.userId}
-             userLogin={props.userLogin}
-             login={props.login}
-             logout={props.logout}
+      <Login {...{login}}
       />
   )
 }

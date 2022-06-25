@@ -6,16 +6,16 @@ import './Posts.scss';
 import Preloader from "../../common/Preloader";
 import {deletePostSuccess, uploadPostPhoto} from "../../../Redux/profile-reducer";
 
-const PostsContainer = (props) => {
-    if (!props.profileData) {
-        return <Preloader/>
+const PostsContainer = ({profileData,uploadPostPhoto,deletePostSuccess, posts}) => {
+    if (!profileData) {
+        return null
     }
     return (
         <div className={'posts-container'}>
-            <NewPost uploadPostPhoto={props.uploadPostPhoto}/>
-            <Posts profileData={props.profileData}
-                   deletePostSuccess={props.deletePostSuccess}
-                   posts={props.posts}/>
+            <NewPost uploadPostPhoto={uploadPostPhoto}/>
+            <Posts profileData={profileData}
+                   deletePostSuccess={deletePostSuccess}
+                   posts={posts}/>
         </div>
     );
 };

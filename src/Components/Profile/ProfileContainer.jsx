@@ -1,7 +1,7 @@
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {useEffect, useState} from "react";
-import {getAuthUserData, toggleIsFetching,} from "../../Redux/authReducer";
+import {getAuthUserData} from "../../Redux/authReducer";
 import {useNavigate, useParams} from "react-router-dom";
 import {getUserProfile, getUserStatus, updateProfileInfo, updateProfilePhoto} from "../../Redux/profile-reducer";
 import PostsContainer from "./Posts/PostsContainer";
@@ -16,35 +16,36 @@ const mstp = (state) => {
         authUserId: state.auth.userId,
     }
 }
-const ProfileContainer = (props) => {
+const ProfileContainer = ({isAuth,authUserId,getUserProfile,getUserStatus,posts,status,login,aboutMe,getAuthUserData,
+                              updateProfileInfo, updateProfilePhoto,profileData}) => {
     const params = useParams();
 
     const toLogin = useNavigate();
-    if (!props.isAuth) {
+    if (!isAuth) {
         toLogin('/login');
     }
     const [authUserProfile, setAuthUserProfile] = useState(false);
 
     useEffect( ()=> {
-        (+params.userId === +props.authUserId) ? setAuthUserProfile(true) : setAuthUserProfile(false)
-        props.getUserProfile(params.userId);
-        props.getUserStatus(params.userId);
+        (+params.userId === +authUserId) ? setAuthUserProfile(true) : setAuthUserProfile(false)
+        getUserProfile(params.userId);
+        getUserStatus(params.userId);
     }, [params])
 
   return (
       <>
           <Profile authUserProfile={authUserProfile}
-                   posts={props.posts}
-                   status={props.status}
-                   login={props.login}
+                   posts={posts}
+                   status={status}
+                   login={login}
                    params={params}
-                   aboutMe={props.aboutMe}
-                   getAuthUserData={props.getAuthUserData}
-                   getUserProfile={props.getUserProfile}
-                   getUserStatus={props.getUserStatus}
-                   updateProfileInfo={props.updateProfileInfo}
-                   updateProfilePhoto={props.updateProfilePhoto}
-                   profileData={props.profileData}/>
+                   aboutMe={aboutMe}
+                   getAuthUserData={getAuthUserData}
+                   getUserProfile={getUserProfile}
+                   getUserStatus={getUserStatus}
+                   updateProfileInfo={updateProfileInfo}
+                   updateProfilePhoto={updateProfilePhoto}
+                   profileData={profileData}/>
           <PostsContainer />
       </>
   )
@@ -53,5 +54,4 @@ export default connect(mstp,{getAuthUserData,
                                              getUserProfile,
                                              getUserStatus,
                                              updateProfileInfo,
-                                             updateProfilePhoto,
-                                             toggleIsFetching})(ProfileContainer);
+                                             updateProfilePhoto})(ProfileContainer);

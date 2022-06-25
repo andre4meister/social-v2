@@ -7,28 +7,28 @@ import {
     setUsers, unfollow
 } from "../../Redux/users-reducer";
 
-const FriendsContainer = (props) => {
+const FriendsContainer = ({count,users,setUsers,currentPage,setCurrentPageSuccess,totalCount,follow, unfollow}) => {
     const onPageChanged = (page) => {
-        props.setUsers(page, props.count, true);
-        props.setCurrentPageSuccess(page);
+        setUsers(page, count, true);
+        setCurrentPageSuccess(page);
     }
     useEffect( () => {
-        if (!props.users) {
-            props.setUsers(props.currentPage, props.count, true);
+        if (!users) {
+            setUsers(currentPage, count, true);
         }
         return () => {
-            props.setCurrentPageSuccess(1);
-            props.setUsers(1, props.count, true);
+            setCurrentPageSuccess(1);
+            setUsers(1, count, true);
         }
     }, []);
 
     return (
         <>
-            <Users {...props}></Users>
+            <Users {...{users,follow,unfollow }}></Users>
             <Paginator
-                totalCount={props.totalCount}
-                count={props.count}
-                currentPage={props.currentPage}
+                totalCount={totalCount}
+                count={count}
+                currentPage={currentPage}
                 onPageChanged={onPageChanged}/>
         </>
     );

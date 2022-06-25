@@ -1,6 +1,6 @@
 import './Header.scss';
 
-const Header = (props) => {
+const Header = ({login,logout}) => {
 
   return (
           <header className={'header-main'}>
@@ -15,7 +15,7 @@ const Header = (props) => {
                 <input type={'text'} placeholder={'Search here...'} className={'search-input'}/>
               </div>
               <div className={'profile-login'}>
-                  {props.login && <button className="btn btn-primary" onClick={() => props.logout()}>Logout</button>}
+                  {login && <button className="btn btn-primary" onClick={() => logout()}>Logout</button>}
               </div>
           </header>
   )

@@ -7,10 +7,10 @@ import htmlLogo from '../../../images/html.png'
 import jsLogo from '../../../images/js-logo.png'
 
 
-const Tech = (props) => {
+const Tech = ({logo,index}) => {
     return (
         <div className={'tech-logo'} >
-            <img src={props.logo} key={props.index} alt={props.index}/>
+            <img src={logo} key={index} alt={index}/>
         </div>
     )
 }

@@ -13,11 +13,8 @@ const Preloader = ({ getAuthUserData, isAuth}) => {
   </div>
 }
 
-function mstp(state) {
-    return {
-        // isFetching: state.auth.isFetching,
-        isAuth: state.auth.isAuth,
-    }
-}
+const mstp = state => ({
+    isAuth: state.auth.isAuth,
+});
 
 export default connect(mstp,{getAuthUserData})(Preloader);
