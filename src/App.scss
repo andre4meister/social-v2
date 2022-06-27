@@ -98,3 +98,16 @@ body {
     }
   }
 }
+.blue-button {
+  margin: 3px 0 0 0vw;
+  max-height: 5vh;
+  max-width: 10vw;
+  padding-bottom: 25px;
+  color: white;
+  background-color: #0d6efd;
+  border: 2px solid white;
+  border-radius: 7px;
+  &:hover {
+    background-color: #125dd0;
+  }
+}

@@ -65,6 +65,12 @@ export const updateProfileInfo = (objInfo) => async (dispatch, getState) => {
         dispatch(getUserProfile(getState().auth.userId));
     }
 }
+export const updateStatus = (status) => async (dispatch,getState) => {
+    let response = await profileAPI.updateStatus(status);
+    if (response.data.resultCode === 0) {
+        dispatch(getUserStatus(getState().auth.userId));
+    }
+}
 export const updateProfilePhoto = (objPhoto) => async (dispatch, getState) => {
     const file = new FormData();
     file.append("myFile", objPhoto);
@@ -72,7 +78,6 @@ export const updateProfilePhoto = (objPhoto) => async (dispatch, getState) => {
     console.log(response, response.resultCode)
     if ( response.data.resultCode === 0) {
         dispatch(getUserProfile(getState().auth.userId));
-       alert('Profile info was successfully updated')
     } else alert('something bad')
 }
 

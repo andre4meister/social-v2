@@ -30,6 +30,9 @@ export const profileAPI = {
     updateProfileInfo(objInfo) {
         return instance.put( `profile`, objInfo)
     },
+    updateStatus(status) {
+        return instance.put( `profile/status`, {status})
+    },
     updateProfilePhoto(file) {
         return instance.put( `profile/photo`, file,  {
             headers: {

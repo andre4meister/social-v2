@@ -3,7 +3,13 @@ import {connect} from "react-redux";
 import {useEffect, useState} from "react";
 import {getAuthUserData} from "../../Redux/authReducer";
 import {useNavigate, useParams} from "react-router-dom";
-import {getUserProfile, getUserStatus, updateProfileInfo, updateProfilePhoto} from "../../Redux/profile-reducer";
+import {
+    getUserProfile,
+    getUserStatus,
+    updateProfileInfo,
+    updateProfilePhoto,
+    updateStatus
+} from "../../Redux/profile-reducer";
 import PostsContainer from "./Posts/PostsContainer";
 
 const mstp = (state) => {
@@ -17,7 +23,7 @@ const mstp = (state) => {
     }
 }
 const ProfileContainer = ({isAuth,authUserId,getUserProfile,getUserStatus,posts,status,login,aboutMe,getAuthUserData,
-                              updateProfileInfo, updateProfilePhoto,profileData}) => {
+                              updateProfileInfo, updateProfilePhoto,profileData,updateStatus}) => {
     const params = useParams();
 
     const toLogin = useNavigate();
@@ -45,7 +51,8 @@ const ProfileContainer = ({isAuth,authUserId,getUserProfile,getUserStatus,posts,
                    getUserStatus={getUserStatus}
                    updateProfileInfo={updateProfileInfo}
                    updateProfilePhoto={updateProfilePhoto}
-                   profileData={profileData}/>
+                   profileData={profileData}
+                   updateStatus={updateStatus}/>
           <PostsContainer />
       </>
   )
@@ -54,4 +61,5 @@ export default connect(mstp,{getAuthUserData,
                                              getUserProfile,
                                              getUserStatus,
                                              updateProfileInfo,
-                                             updateProfilePhoto})(ProfileContainer);
+                                             updateProfilePhoto,
+                                             updateStatus})(ProfileContainer);

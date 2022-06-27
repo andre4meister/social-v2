@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
+import BlueButton from "../common/BlueButton";
+import './EditForms.scss';
 
-const EditProfileForm = ({updateProfileInfo, userId}) => {
-    const [name, setName] = useState('');
-    const [aboutMe, setAboutMe] = useState('');
-    const [searchJob, setSearchJob] = useState(false);
-    const [likedJob, setLikedJob] = useState('');
-    const [github, setGithub] = useState('');
-    const [website, setWebsite] = useState('');
-    const [facebook, setFacebook] = useState('');
-    const [instagram, setInstagram] = useState('');
-    const [twitter, setTwitter] = useState('');
+const EditProfileForm = ({updateProfileInfo, userId, profileData}) => {
+
+    const [name, setName] = useState(profileData.fullName);
+    const [aboutMe, setAboutMe] = useState(profileData.aboutMe);
+    const [searchJob, setSearchJob] = useState(profileData.lookingForAJob);
+    const [likedJob, setLikedJob] = useState(profileData.lookingForAJobDescription);
+    const [github, setGithub] = useState(profileData.contacts.github);
+    const [website, setWebsite] = useState(profileData.contacts.website);
+    const [facebook, setFacebook] = useState(profileData.contacts.facebook);
+    const [instagram, setInstagram] = useState(profileData.contacts.instagram);
+    const [twitter, setTwitter] = useState(profileData.contacts.twitter);
 
     const onEditSubmit = () => {
         updateProfileInfo({ userId, lookingForAJob: Boolean(searchJob),
@@ -70,7 +73,9 @@ const EditProfileForm = ({updateProfileInfo, userId}) => {
                     onChange={ (e) => setWebsite(e.target.value)}/>
                 </div>
             </div>
-            <button onClick={() => onEditSubmit()}>Submit editing</button>
+            <BlueButton text={'Submit editing'} method={onEditSubmit} submitData={{ userId, lookingForAJob: Boolean(searchJob),
+                lookingForAJobDescription: likedJob, fullName: name, aboutMe,
+                github, instagram, facebook, website, twitter}}/>
         </div>
     );
 };

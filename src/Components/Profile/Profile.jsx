@@ -1,29 +1,31 @@
 import './Profile.scss';
-import pencil from '../../icons/pencil.svg'
-import portrait from '../../icons/portrait.svg'
-
+import pencil from '../../icons/pencil.svg';
+import portrait from '../../icons/portrait.svg';
+import document from '../../icons/document.svg';
 import {useState} from "react";
 import EditProfileForm from "./EditProfileForm";
 import EditPhotoForm from "./EditPhotoForm";
+import EditStatusForm from "./EditStatusForm";
 
 
-const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,updateProfilePhoto}) => {
+
+const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,updateProfilePhoto,updateStatus}) => {
     const [infoEditMode, setInfoEditMode] = useState(false);
     const [photoEditMode, setPhotoEditMode] = useState(false);
+    const [statusEditMode, setStatusEditMode] = useState(false);
+
 
     if (!profileData) {
         return null
     }
     const contacts = profileData.contacts;
+
   return (
       <div className={'content-container'}>
           <div className={'profile-info'}>
-              { !(infoEditMode || photoEditMode) && <img className={'large-photo'} alt={'big'}
+              { !(infoEditMode || photoEditMode || statusEditMode) && <img className={'large-photo'} alt={'big'}
                    src={profileData.photos.large}/> }
-              { !(infoEditMode || photoEditMode) && <img className={'small-photo'} alt={'small'}
-                   src={profileData.photos.small}/> }
-              <div className={'info-block'}>
-                  <div className={'social-media info-item'}>
+                  <div className={'social-media'}>
                       <a href={contacts.facebook}><img alt={'facebook'}
                          src={'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png'}/></a>
                       <a href={contacts.instagram}><img alt={'instagram'}
@@ -32,20 +34,43 @@ const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,up
                       <a href={contacts.website}><img alt={'linkedin'}  src={'https://cdn-icons-png.flaticon.com/512/174/174857.png'}/></a>
                       <a href={contacts.twitter}><img alt={'twitter'} src={'https://cdn-icons-png.flaticon.com/512/124/124021.png'}/></a>
                   </div>
-                  <div className={'login info-item'}>{profileData.fullName}</div>
-                  <div className={'status info-item'}>
-                      <div className={'status-item status-tag'}>Status</div>
-                      <div className={'status-item about-tag'}>About</div>
-                      <div className={'status-item status-text'}>{status}</div>
-                      <div className={'status-item about'}>{profileData.aboutMe}</div>
+                  <div className={'info'}>
+                      <div className={'login'}>{profileData.fullName}</div>
+                      <div className={'user-info'}>
+                          <div className={'info-tags'}>
+                              <div className={'status-item'}>Status</div>
+                              <div className={'status-item'}>About</div>
+                              <div className={'status-item'}>Looking job description</div>
+                          </div>
+                          <div className={'info-data'}>
+                              <div className={'status-item'}>{status}</div>
+                              <div className={'status-item'}>{profileData.aboutMe}</div>
+                              <div className={'status-item'}>{profileData.lookingForAJobDescription}</div>
+                          </div>
+                      </div>
                   </div>
-                  {authUserProfile && <img className={'edit-profile info-edit'} src={pencil} alt={'edit profile'}
-                                           onClick={ () => setInfoEditMode(!infoEditMode)}/>}
-                  {authUserProfile && <img className={'edit-profile photo-edit'} src={portrait} alt={'edit user`s avatar'}
-                                           onClick={ () => setPhotoEditMode(!photoEditMode)}/>}
+              <div className={'editing-btns'}>
+                  {authUserProfile && <span className={'edit-profile info-edit'}
+                                            onClick={ () => setInfoEditMode(!infoEditMode)}>Edit profile info
+                      <img  src={pencil} alt={'edit profile'}
+                           />
+                  </span>}
+                  {authUserProfile && <span className={'edit-profile photo-edit'}
+                                            onClick={ () => setPhotoEditMode(!photoEditMode)}>Update photo
+                      <img  src={portrait} alt={'edit user`s avatar'}
+                           />
+                  </span>}
+                  {authUserProfile && <span className={'edit-profile status-edit'}
+                                            onClick={ () => setStatusEditMode(!statusEditMode)}>Change status
+                      <img  src={document} alt={'edit user`s status'}
+                           />
+                  </span>}
               </div>
-              { infoEditMode && <EditProfileForm updateProfileInfo={updateProfileInfo} userId={params.userId}/>}
-              { photoEditMode && <EditPhotoForm updateProfilePhoto={updateProfilePhoto}/>}
+              { infoEditMode && <EditProfileForm updateProfileInfo={updateProfileInfo} userId={params.userId}
+                                                 profileData={profileData}/>}
+              { photoEditMode && <EditPhotoForm updateProfilePhoto={updateProfilePhoto}
+                                                setPhotoEditMode={setPhotoEditMode}/>}
+              { statusEditMode && <EditStatusForm updateStatus={updateStatus} /> }
           </div>
       </div>
   )
