@@ -55,8 +55,12 @@ export const getUserStatus = (userId) => async (dispatch) => {
 }
 export const uploadPostPhoto = ( randomId, text, time, likes) => async (dispatch) => {
     let response = await photoAPI.getPhoto(randomId);
-    if (response.data.resultCode === 0) {
+    console.log('gere')
+
+    if (response.status === 200) {
         dispatch(createNewPostSuccess({randomId, text, time, imgUrl: response.data[0].url, likes}));
+    } else {
+        alert('Some error occurred')
     }
 }
 export const updateProfileInfo = (objInfo) => async (dispatch, getState) => {

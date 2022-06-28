@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import Posts from "./Posts";
 import NewPost from "./NewPost";
 import './Posts.scss';
-import Preloader from "../../common/Preloader";
 import {deletePostSuccess, uploadPostPhoto} from "../../../Redux/profile-reducer";
 
 const PostsContainer = ({profileData,uploadPostPhoto,deletePostSuccess, posts}) => {

@@ -39,13 +39,14 @@ export const login = (email,password, rememberMe = false, captcha = '') => async
     let response = await authAPI.login(email,password, rememberMe, captcha);
     switch (response.data.resultCode) {
         case 0: {
+            console.log(response)
             dispatch(getAuthUserData());
             break
         }
         case 1: {
-            alert(response.data.messages)
             console.log(response)
-            break
+            console.log(response.data.messages)
+            return response.data
         }
         default: {
             alert('resultCode ne 1 i ne 0')
