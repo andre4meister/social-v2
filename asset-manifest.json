@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/social-v2/static/css/main.20504e56.css",
+    "main.js": "/social-v2/static/js/main.1d3822e2.js",
+    "static/js/787.b09e6aa8.chunk.js": "/social-v2/static/js/787.b09e6aa8.chunk.js",
+    "static/media/redux-logo.png": "/social-v2/static/media/redux-logo.1b4bb5fceb01b19da59d.png",
+    "static/media/bootstrap-icon-css.png": "/social-v2/static/media/bootstrap-icon-css.44244003cae2a016316c.png",
+    "static/media/react.png": "/social-v2/static/media/react.c58f7d3bff81ce0a7f4e.png",
+    "static/media/pageNotFound.png": "/social-v2/static/media/pageNotFound.00e1d0c955debae42729.png",
+    "static/media/js-logo.png": "/social-v2/static/media/js-logo.c5673894e81ac648da9d.png",
+    "static/media/html.png": "/social-v2/static/media/html.2c6a71b184b518b01b9a.png",
+    "static/media/user.png": "/social-v2/static/media/user.5cdfd5220aa1731cfa3e.png",
+    "static/media/css.png": "/social-v2/static/media/css.57feb85c31eec0ff2e1a.png",
+    "static/media/settings.svg": "/social-v2/static/media/settings.af6aa349190bd7031355a7694ff8f23e.svg",
+    "index.html": "/social-v2/index.html",
+    "static/media/document.svg": "/social-v2/static/media/document.df80f6f7b5fd52da759029e5cc50949c.svg",
+    "static/media/users-alt.svg": "/social-v2/static/media/users-alt.0d7b349b6412f23411bc4bb5e3753e02.svg",
+    "static/media/pencil.svg": "/social-v2/static/media/pencil.0030529b00faf790f2619b4186a58ea9.svg",
+    "static/media/portrait.svg": "/social-v2/static/media/portrait.fd359b6b39c0c093749a5c3f4919e489.svg",
+    "static/media/menu-dots.svg": "/social-v2/static/media/menu-dots.0670920ad081271f52f5a4dd56c7dd39.svg",
+    "main.20504e56.css.map": "/social-v2/static/css/main.20504e56.css.map",
+    "main.1d3822e2.js.map": "/social-v2/static/js/main.1d3822e2.js.map",
+    "787.b09e6aa8.chunk.js.map": "/social-v2/static/js/787.b09e6aa8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.20504e56.css",
+    "static/js/main.1d3822e2.js"
+  ]
+}
