@@ -64,13 +64,13 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-const setUsersSuccess = (users) => ({type: SET_USERS, users});
+
 const setFriendsSuccess = (friends) => ({type: SET_FRIENDS, friends});
 const setTotalCountSuccess = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
 const followSuccess = (userId) => ({type: FOLLOW, userId})
 const unfollowSuccess = (userId) => ({type: UNFOLLOW, userId})
 export const setCurrentPageSuccess = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-
+export const setUsersSuccess = (users) => ({type: SET_USERS, users});
 
 export const setUsers = (currentPage, count, friend, sidebar) => async (dispatch) => {
     let response = await usersAPI.getUsers(currentPage, count, friend);
@@ -80,7 +80,6 @@ export const setUsers = (currentPage, count, friend, sidebar) => async (dispatch
         dispatch(setUsersSuccess(response.data.items));
         dispatch(setTotalCountSuccess(response.data.totalCount));
     }
-
 }
 
 export const follow = (userId) => async (dispatch) => {

@@ -7,8 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './Redux/redux-store'
 import {Provider} from "react-redux";
-import {
-    BrowserRouter as Router} from 'react-router-dom'
+import {HashRouter as Router} from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

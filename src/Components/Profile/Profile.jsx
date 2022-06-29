@@ -35,16 +35,18 @@ const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,up
                       <a href={contacts.twitter}><img alt={'twitter'} src={'https://cdn-icons-png.flaticon.com/512/124/124021.png'}/></a>
                   </div>
                   <div className={'info'}>
-                      <div className={'login'}>{profileData.fullName}</div>
+                      <div className={'info__login'}>{profileData.fullName}</div>
                       <div className={'user-info'}>
-                          <div className={'info-tags'}>
+                          <div className={'user-info__block'}>
                               <div className={'status-item'}>Status</div>
-                              <div className={'status-item'}>About</div>
-                              <div className={'status-item'}>Looking job description</div>
-                          </div>
-                          <div className={'info-data'}>
                               <div className={'status-item'}>{status}</div>
+                          </div>
+                          <div className={'user-info__block'}>
+                              <div className={'status-item'}>About</div>
                               <div className={'status-item'}>{profileData.aboutMe}</div>
+                          </div>
+                          <div className={'user-info__block'}>
+                              <div className={'status-item'}>Looking job description</div>
                               <div className={'status-item'}>{profileData.lookingForAJobDescription}</div>
                           </div>
                       </div>

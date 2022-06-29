@@ -16,6 +16,7 @@ const Paginator = ({totalCount, count, onPageChanged, currentPage}) => {
             onPageChanged(currentPage+1)
         }
     }
+
     return (
       <ul className={'pagination justify-content-center'}>
           <li>
