@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/social-v2/static/css/main.20504e56.css",
-    "main.js": "/social-v2/static/js/main.9264ab95.js",
+    "main.css": "/social-v2/static/css/main.8c76cc43.css",
+    "main.js": "/social-v2/static/js/main.1a06d4cf.js",
     "static/js/787.b09e6aa8.chunk.js": "/social-v2/static/js/787.b09e6aa8.chunk.js",
     "static/media/redux-logo.png": "/social-v2/static/media/redux-logo.1b4bb5fceb01b19da59d.png",
     "static/media/bootstrap-icon-css.png": "/social-v2/static/media/bootstrap-icon-css.44244003cae2a016316c.png",
@@ -18,12 +18,12 @@
     "static/media/pencil.svg": "/social-v2/static/media/pencil.0030529b00faf790f2619b4186a58ea9.svg",
     "static/media/portrait.svg": "/social-v2/static/media/portrait.fd359b6b39c0c093749a5c3f4919e489.svg",
     "static/media/menu-dots.svg": "/social-v2/static/media/menu-dots.0670920ad081271f52f5a4dd56c7dd39.svg",
-    "main.20504e56.css.map": "/social-v2/static/css/main.20504e56.css.map",
-    "main.9264ab95.js.map": "/social-v2/static/js/main.9264ab95.js.map",
+    "main.8c76cc43.css.map": "/social-v2/static/css/main.8c76cc43.css.map",
+    "main.1a06d4cf.js.map": "/social-v2/static/js/main.1a06d4cf.js.map",
     "787.b09e6aa8.chunk.js.map": "/social-v2/static/js/787.b09e6aa8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.20504e56.css",
-    "static/js/main.9264ab95.js"
+    "static/css/main.8c76cc43.css",
+    "static/js/main.1a06d4cf.js"
   ]
 }
