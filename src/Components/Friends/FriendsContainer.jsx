@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {Suspense, useEffect} from 'react';
 import Users from "../Users/Users";
-import Paginator from "../Users/Paginator/Paginator";
 import {connect} from "react-redux";
 import {
     follow, setCurrentPageSuccess,
     setUsers, unfollow
 } from "../../Redux/users-reducer";
+const Paginator = React.lazy( () => import("../Users/Paginator/Paginator"))
 
 const FriendsContainer = ({count,users,setUsers,currentPage,setCurrentPageSuccess,totalCount,follow, unfollow}) => {
     const onPageChanged = (page) => {
@@ -25,11 +25,13 @@ const FriendsContainer = ({count,users,setUsers,currentPage,setCurrentPageSucces
     return (
         <>
             <Users {...{users,follow,unfollow }}></Users>
-            <Paginator
-                totalCount={totalCount}
-                count={count}
-                currentPage={currentPage}
-                onPageChanged={onPageChanged}/>
+            <Suspense>
+                <Paginator
+                    totalCount={totalCount}
+                    count={count}
+                    currentPage={currentPage}
+                    onPageChanged={onPageChanged}/>
+            </Suspense>
         </>
     );
 };

@@ -186,4 +186,88 @@
   }
 }
 
-
+@media screen and (max-width: 640px) {
+  .profile-info {
+    grid-template-columns: 40% 25% 35%;
+    grid-template-rows: 25% 27% 16% 18% 14%;
+    margin: 0 auto;
+  }
+  .large-photo {
+    width: 100%;
+    height: 34vw;
+    border-radius: 7px;
+  }
+  .info {
+    .user-info {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 1vh;
+      &__block {
+        display: flex;
+        justify-content: stretch;
+        align-items: flex-start;
+        min-width: 100%;
+        border-bottom: 2px solid lightgrey;
+      }
+      .status-item {
+        min-height: 33%;
+        width: 100%;
+        background-color: #f8f9fa;
+        border: 1px solid transparent;
+        margin: 3px 5px;
+        font-size: 80%;
+      }
+      .status-tag {
+        display: none;
+      }
+    }
+  }
+  .editing-btns {
+    grid-row: 4/6;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 3px;
+  }
+  .edit-profile {
+    display: inline-block;
+    margin: 3% 4px;
+    background-color: #d8ecfd;
+    border-radius: 5px;
+    padding: 0 5px;
+    color: #575757;
+    max-width: 100%;
+    max-height: min-content;
+    text-align: center;
+    img {
+      display: inline-block;
+      max-width: 10%;
+      margin-left: 1px;
+      padding: 3px;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .info__login {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-size: 5vmin;
+    text-align: start;
+    padding: 3px 0 0 3vw;
+    border-bottom: 3px solid lightgrey;
+  }
+  .social-media {
+    margin: 0 10%;
+    img {
+      margin: 0 1vw;
+      width: 12%;
+      border-radius: 4px;
+    }
+  }
+}

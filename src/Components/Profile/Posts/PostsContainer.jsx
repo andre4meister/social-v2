@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {connect} from "react-redux";
-import Posts from "./Posts";
 import NewPost from "./NewPost";
 import './Posts.scss';
 import {deletePostSuccess, uploadPostPhoto} from "../../../Redux/profile-reducer";
 
+const Posts = React.lazy(() => import('./Posts'));
 const PostsContainer = ({profileData,uploadPostPhoto,deletePostSuccess, posts}) => {
     if (!profileData) {
         return null
@@ -12,9 +12,11 @@ const PostsContainer = ({profileData,uploadPostPhoto,deletePostSuccess, posts}) 
     return (
         <div className={'posts-container'}>
             <NewPost uploadPostPhoto={uploadPostPhoto}/>
-            <Posts profileData={profileData}
-                   deletePostSuccess={deletePostSuccess}
-                   posts={posts}/>
+            <Suspense>
+                <Posts profileData={profileData}
+                       deletePostSuccess={deletePostSuccess}
+                       posts={posts}/>
+            </Suspense>
         </div>
     );
 };

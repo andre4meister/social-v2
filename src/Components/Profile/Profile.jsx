@@ -1,12 +1,13 @@
 import './Profile.scss';
+import React from "react";
 import pencil from '../../icons/pencil.svg';
 import portrait from '../../icons/portrait.svg';
 import document from '../../icons/document.svg';
-import {useState} from "react";
+import {Suspense, useState} from "react";
 import EditProfileForm from "./EditProfileForm";
 import EditPhotoForm from "./EditPhotoForm";
 import EditStatusForm from "./EditStatusForm";
-
+const SocialMedia = React.lazy( () => import('./SocialMedia'));
 
 
 const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,updateProfilePhoto,updateStatus}) => {
@@ -25,28 +26,22 @@ const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,up
           <div className={'profile-info'}>
               { !(infoEditMode || photoEditMode || statusEditMode) && <img className={'large-photo'} alt={'big'}
                    src={profileData.photos.large}/> }
-                  <div className={'social-media'}>
-                      <a href={contacts.facebook}><img alt={'facebook'}
-                         src={'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/1200px-Facebook_icon_2013.svg.png'}/></a>
-                      <a href={contacts.instagram}><img alt={'instagram'}
-                         src={'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Instagram-Icon.png/640px-Instagram-Icon.png'}/></a>
-                      <a href={contacts.github}><img alt={'github'} src={'https://cdn-icons-png.flaticon.com/512/25/25231.png'}/></a>
-                      <a href={contacts.website}><img alt={'linkedin'}  src={'https://cdn-icons-png.flaticon.com/512/174/174857.png'}/></a>
-                      <a href={contacts.twitter}><img alt={'twitter'} src={'https://cdn-icons-png.flaticon.com/512/124/124021.png'}/></a>
-                  </div>
+                  <Suspense>
+                      <SocialMedia contacts={contacts}/>
+                  </Suspense>
                   <div className={'info'}>
                       <div className={'info__login'}>{profileData.fullName}</div>
                       <div className={'user-info'}>
                           <div className={'user-info__block'}>
-                              <div className={'status-item'}>Status</div>
+                              <div className={'status-item status-tag'}>Status</div>
                               <div className={'status-item'}>{status}</div>
                           </div>
                           <div className={'user-info__block'}>
-                              <div className={'status-item'}>About</div>
+                              <div className={'status-item status-tag'}>About</div>
                               <div className={'status-item'}>{profileData.aboutMe}</div>
                           </div>
                           <div className={'user-info__block'}>
-                              <div className={'status-item'}>Looking job description</div>
+                              <div className={'status-item status-tag'}>Looking job description</div>
                               <div className={'status-item'}>{profileData.lookingForAJobDescription}</div>
                           </div>
                       </div>

@@ -130,7 +130,7 @@ body {
   }
 
   .content-container {
-    grid-column: 2/4;
+    grid-column: 1/4;
     grid-row: 3;
     margin: 0 auto;
   }
@@ -214,4 +214,11 @@ body {
       background-color: #125dd0;
     }
   }
+}
+
+@media screen and (max-width: 640px) {
+  .content-container {
+    width: 90%;
+  }
+
 }
