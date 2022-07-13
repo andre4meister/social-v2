@@ -1,7 +1,13 @@
 {
   "files": {
-    "main.css": "/social-v2/static/css/main.0d8cb869.css",
-    "main.js": "/social-v2/static/js/main.1a06d4cf.js",
+    "main.css": "/social-v2/static/css/main.81107647.css",
+    "main.js": "/social-v2/static/js/main.764672ce.js",
+    "static/css/55.208bc522.chunk.css": "/social-v2/static/css/55.208bc522.chunk.css",
+    "static/js/55.80bac592.chunk.js": "/social-v2/static/js/55.80bac592.chunk.js",
+    "static/js/768.d54340ef.chunk.js": "/social-v2/static/js/768.d54340ef.chunk.js",
+    "static/js/682.20a2e65c.chunk.js": "/social-v2/static/js/682.20a2e65c.chunk.js",
+    "static/css/423.c4061f27.chunk.css": "/social-v2/static/css/423.c4061f27.chunk.css",
+    "static/js/423.72d2cf57.chunk.js": "/social-v2/static/js/423.72d2cf57.chunk.js",
     "static/js/787.b09e6aa8.chunk.js": "/social-v2/static/js/787.b09e6aa8.chunk.js",
     "static/media/redux-logo.png": "/social-v2/static/media/redux-logo.1b4bb5fceb01b19da59d.png",
     "static/media/bootstrap-icon-css.png": "/social-v2/static/media/bootstrap-icon-css.44244003cae2a016316c.png",
@@ -18,12 +24,18 @@
     "static/media/pencil.svg": "/social-v2/static/media/pencil.0030529b00faf790f2619b4186a58ea9.svg",
     "static/media/portrait.svg": "/social-v2/static/media/portrait.fd359b6b39c0c093749a5c3f4919e489.svg",
     "static/media/menu-dots.svg": "/social-v2/static/media/menu-dots.0670920ad081271f52f5a4dd56c7dd39.svg",
-    "main.0d8cb869.css.map": "/social-v2/static/css/main.0d8cb869.css.map",
-    "main.1a06d4cf.js.map": "/social-v2/static/js/main.1a06d4cf.js.map",
+    "main.81107647.css.map": "/social-v2/static/css/main.81107647.css.map",
+    "main.764672ce.js.map": "/social-v2/static/js/main.764672ce.js.map",
+    "55.208bc522.chunk.css.map": "/social-v2/static/css/55.208bc522.chunk.css.map",
+    "55.80bac592.chunk.js.map": "/social-v2/static/js/55.80bac592.chunk.js.map",
+    "768.d54340ef.chunk.js.map": "/social-v2/static/js/768.d54340ef.chunk.js.map",
+    "682.20a2e65c.chunk.js.map": "/social-v2/static/js/682.20a2e65c.chunk.js.map",
+    "423.c4061f27.chunk.css.map": "/social-v2/static/css/423.c4061f27.chunk.css.map",
+    "423.72d2cf57.chunk.js.map": "/social-v2/static/js/423.72d2cf57.chunk.js.map",
     "787.b09e6aa8.chunk.js.map": "/social-v2/static/js/787.b09e6aa8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0d8cb869.css",
-    "static/js/main.1a06d4cf.js"
+    "static/css/main.81107647.css",
+    "static/js/main.764672ce.js"
   ]
 }
