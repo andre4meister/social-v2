@@ -271,3 +271,15 @@
     }
   }
 }
+
+@media screen and (max-width: 420px) {
+  .edit-profile {
+    margin: 1px;
+    font-size: 0.9em;
+    min-width: 100%;
+    grid-row: 3/6;
+    img {
+      display: none
+    }
+  }
+}

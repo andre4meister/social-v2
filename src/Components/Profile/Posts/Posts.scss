@@ -190,3 +190,44 @@
     }
   }
 }
+
+@media screen and (max-width: 420px) {
+  .posts-container .new-post {
+    width: 100%;
+    grid-template-columns: 100%;
+    h3 {
+      margin: 5px 0 3px 10px;
+    }
+    input {
+      display: block;
+      margin: 4px auto;
+      min-width: 90%;
+    }
+    button {
+      max-width: fit-content;
+    }
+  }
+  .posts-container .posts {
+    width: 100%;
+    .name-time {
+      h4 {
+        font-size: 1.6em;
+        margin: 0 0 2px 8px;
+      }
+      div {
+        min-width: max-content;
+      }
+    }
+    .post-menu {
+      margin-left: 94%;
+
+      img {
+        width: 20px;
+        float: left;
+      }
+    }
+  }
+  .post {
+    margin-bottom: 20px;
+  }
+}

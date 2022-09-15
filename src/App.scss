@@ -203,7 +203,7 @@ body {
   .blue-button {
     margin: 3px 0 0 0vw;
     max-height: 5vh;
-    max-width: 10vw;
+    min-width: min-content;
     padding-bottom: 25px;
     color: white;
     background-color: #0d6efd;
@@ -219,6 +219,32 @@ body {
 @media screen and (max-width: 640px) {
   .content-container {
     width: 90%;
+  }
+
+}
+
+@media screen and (max-width: 640px) {
+  .content-container {
+    width: 98%;
+    height: 310px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .app-container {
+    grid-template-rows: 12vh 2vh 24+
+    0px 2vh auto;
+  }
+  .content-container {
+    width: 98%;
+    height: 240px;
+  }
+  .blue-button {
+    min-width: min-content;
+  }
+  .navbar-item a img {
+    width: 15px;
+    height: 15px;
   }
 
 }
