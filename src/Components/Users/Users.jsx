@@ -2,6 +2,7 @@ import User from "./User";
 import './Users.scss';
 const Users = ({users,follow,unfollow}) => {
     const usersArray = users.map( (u, i) => <User
+        key={u.id + i}
         u={u}
         follow={follow}
         unfollow={unfollow}/> )

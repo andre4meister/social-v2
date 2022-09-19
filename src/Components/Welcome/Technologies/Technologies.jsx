@@ -17,7 +17,7 @@ const Tech = ({logo,index}) => {
 
 const technologies = [btLogo, reactLogo, reduxLogo, cssLogo, htmlLogo, jsLogo];
 const images = technologies.map( (logo,index) => {
-    return <Tech className={'tech-logo'} index={index} logo={logo}/>
+    return <Tech className={'tech-logo'} index={index} logo={logo} key={index}/>
 })
 
 

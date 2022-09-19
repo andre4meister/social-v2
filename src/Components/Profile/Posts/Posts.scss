@@ -8,6 +8,7 @@
   flex-direction: column;
   margin-top: 4vh;
 }
+
 .posts {
   width: 74vw;
   background-color: white;
@@ -15,6 +16,7 @@
   box-shadow: 1px 1px 8px 1px lightgrey;
 
 }
+
 .post {
   display: flex;
   flex-direction: column;
@@ -22,36 +24,45 @@
   align-content: flex-start;
   margin-bottom: 50px;
   border-bottom: 5px solid gray;
+
   img {
     max-width: 70vw;
     margin: 3px auto;
   }
+
   .photo-name {
     margin: 2px 0 0 2vw;
     display: grid;
     grid-template-columns: minmax(3vw, 7vw)  15vw 40vw 10vw;
+
     img {
       border-radius: 100%;
       max-width: 7vw;
     }
+
     .name-time {
       margin-left: 1vw;
     }
+
     h4 {
       margin-left: 8px;
     }
-   }
+  }
+
   .post-text {
     margin: 0.4vw 10vw;
   }
+
   .likes {
     margin: 0 7px 0 3vw;
+
     p {
       display: inline-block;
       padding-left: 5px;
     }
   }
 }
+
 .new-post {
   grid-row: 4;
   grid-column: 2/3;
@@ -62,19 +73,23 @@
   margin: 0 6vw 4vh 6vw;
   background-color: #ffffff;
   border-radius: 6px;
+
   .post-text {
     max-width: 68vw;
     background-color: #f8f9fa;
     border-radius: 10px;
     border: none;
+
     &:hover {
       background-color: #f0f2f5;
     }
   }
+
   .post-photo {
     margin: 1vh auto 0 5vw;
     border: 1px solid transparent;
   }
+
   button {
     max-height: 5vh;
     margin: 1vh auto 1vh 57vw;
@@ -84,20 +99,25 @@
     background-color: #0d6efd;
     border: 2px solid white;
     border-radius: 7px;
+
     &:hover {
       background-color: #125dd0;
     }
   }
 }
+
 .post-menu {
   grid-column: 4/5;
+
   img {
     width: 2vw;
+
     &:hover {
       cursor: pointer;
     }
   }
 }
+
 .activeMenu {
   display: flex;
   flex-direction: column;
@@ -105,15 +125,18 @@
   align-content: center;
   border-radius: 4px;
   text-align: center;
+
   div {
     border: 1px solid darkgray;
     border-radius: 4px;
     padding-left: 10px;
+
     &:hover {
       cursor: pointer;
     }
   }
 }
+
 .hiddenMenu {
   display: none;
 }
@@ -139,6 +162,7 @@
     margin-bottom: 50px;
     border-bottom: 5px solid gray;
     font-size: 70%;
+
     img {
       max-width: 70vw;
       margin: 3px auto;
@@ -148,16 +172,18 @@
     width: 30%;
     grid-column: 3/5;
     margin-left: 65%;
+
     img {
       width: 2vw;
       margin-left: 60%;
+
       &:hover {
         cursor: pointer;
       }
     }
   }
   .activeMenu {
-   width: 100%;
+    width: 100%;
     margin-right: 10%;
   }
   .hiddenMenu {
@@ -168,9 +194,11 @@
 @media screen and (max-width: 640px) {
   .posts-container {
     grid-column: 1/4;
+
     .new-post {
       width: 90%;
     }
+
     .posts {
       width: 90%;
     }
@@ -185,6 +213,7 @@
   .post-menu {
     margin-left: 80%;
     width: 12%;
+
     img {
       margin-left: 200%;
     }
@@ -193,31 +222,38 @@
 
 @media screen and (max-width: 420px) {
   .posts-container .new-post {
+    margin-top: 190px;
     width: 100%;
     grid-template-columns: 100%;
+
     h3 {
       margin: 5px 0 3px 10px;
     }
+
     input {
       display: block;
       margin: 4px auto;
       min-width: 90%;
     }
+
     button {
       max-width: fit-content;
     }
   }
   .posts-container .posts {
     width: 100%;
+
     .name-time {
       h4 {
         font-size: 1.6em;
         margin: 0 0 2px 8px;
       }
+
       div {
         min-width: max-content;
       }
     }
+
     .post-menu {
       margin-left: 94%;
 

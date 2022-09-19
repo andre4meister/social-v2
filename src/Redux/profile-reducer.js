@@ -4,6 +4,7 @@ const GET_USER_PROFILE ='GET_USER_PROFILE';
 const GET_USER_STATUS = 'GET_USER_STATUS';
 const CREATE_NEW_POST = 'CREATE_NEW_POST';
 const DELETE_POST = 'DELETE_POST';
+const UPLOADING_POST_PHOTO_TOGGLE = 'UPLOADING_POST_PHOTO_TOGGLE'
 
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
     following: 187,
     status: null,
     data: null,
+    isFetchingPostPhoto: false,
 };
 
 const ProfileReducer = (state = initialState, action) => {
@@ -34,6 +36,9 @@ const ProfileReducer = (state = initialState, action) => {
         case DELETE_POST: {
             return {...state, posts: state.posts.filter( p => p.id !== action.postId)}
         }
+        case UPLOADING_POST_PHOTO_TOGGLE: {
+            return {...state, uploadingPostPhoto: action.uploadingPostPhotoStatus}
+        }
         default:
             return state;
     }
@@ -42,6 +47,7 @@ export const getUserStatusSuccess = (status) => ({ type: GET_USER_STATUS, status
 export const getUserProfileSuccess = (payload) => ({ type: GET_USER_PROFILE, payload});
 export const createNewPostSuccess = (newPost) => ({type: CREATE_NEW_POST, newPost});
 export const deletePostSuccess = (postId) => ({type: DELETE_POST, postId});
+export const uploadingPostPhotoToggle = (uploadingPostPhotoStatus) => ({type: UPLOADING_POST_PHOTO_TOGGLE, uploadingPostPhotoStatus});
 
 
 export const getUserProfile = (userId) => async (dispatch) => {
@@ -54,11 +60,12 @@ export const getUserStatus = (userId) => async (dispatch) => {
     dispatch(getUserStatusSuccess(response.data));
 }
 export const uploadPostPhoto = ( randomId, text, time, likes) => async (dispatch) => {
+    dispatch(uploadingPostPhotoToggle(true))
     let response = await photoAPI.getPhoto(randomId);
-    console.log('gere')
 
     if (response.status === 200) {
         dispatch(createNewPostSuccess({randomId, text, time, imgUrl: response.data[0].url, likes}));
+        dispatch(uploadingPostPhotoToggle(false))
     } else {
         alert('Some error occurred')
     }
