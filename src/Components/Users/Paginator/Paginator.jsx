@@ -28,7 +28,7 @@ const Paginator = ({totalCount, count, onPageChanged, currentPage}) => {
           {pages.map( (p) => {
               if((p < currentPage && p > currentPage-5)|| (p > currentPage && p < currentPage+5 )
                   || p === pages.length || p === currentPage || p === 1) {
-                  return <li className={ (p === currentPage) ? 'page-item active' : 'page-item'}
+                  return <li  key={p} className={ (p === currentPage) ? 'page-item active' : 'page-item'}
                   onClick={() => onPageChanged(p)}>
                       {p}
                   </li>

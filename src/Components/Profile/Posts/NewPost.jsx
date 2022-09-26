@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './Posts.scss';
 import Preloader from "../../common/Preloader";
 
-const NewPost = ({uploadPostPhoto, uploadingPostPhotoToggle, isFetchingPostPhoto}) => {
+const NewPost = ({uploadPostPhoto}) => {
     const [newPostText, setNewPostText] = useState('');
 
     const today = new Date();
@@ -11,7 +11,6 @@ const NewPost = ({uploadPostPhoto, uploadingPostPhotoToggle, isFetchingPostPhoto
     const randomId = Math.floor(Math.random() * 1000);
 
     const createPost = (newPostText) => {
-        uploadingPostPhotoToggle(true)
         uploadPostPhoto(randomId, newPostText, time, 0);
         setNewPostText('');
     }
@@ -24,15 +23,7 @@ const NewPost = ({uploadPostPhoto, uploadingPostPhotoToggle, isFetchingPostPhoto
                    type={'text'}
                    placeholder={'Write your text for post'}
                    required={true}/>
-            {!isFetchingPostPhoto
-                ?
                 <button onClick={() => createPost(newPostText)}>Add post</button>
-                :
-                <button className="btn btn-primary" type="button" disabled>
-                    <span className="spinner-border spinner-border-sm float-right" role="status"
-                          aria-hidden="true"></span>
-                </button>
-            }
         </div>
     );
 };

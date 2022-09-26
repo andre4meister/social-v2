@@ -2,19 +2,17 @@ import React, {Suspense} from 'react';
 import {connect} from "react-redux";
 import NewPost from "./NewPost";
 import './Posts.scss';
-import {deletePostSuccess, uploadingPostPhotoToggle, uploadPostPhoto} from "../../../Redux/profile-reducer";
+import {deletePostSuccess, uploadPostPhoto} from "../../../Redux/profile-reducer";
 
 const Posts = React.lazy(() => import('./Posts'));
-const PostsContainer = ({profileData,uploadPostPhoto,deletePostSuccess, posts, isFetchingPostPhoto}) => {
+const PostsContainer = ({profileData,uploadPostPhoto,deletePostSuccess, posts}) => {
     if (!profileData) {
         return null
     }
     return (
         <div className={'posts-container'}>
             <NewPost
-                isFetchingPostPhoto={isFetchingPostPhoto}
-                uploadPostPhoto={uploadPostPhoto}
-                uploadingPostPhotoToggle={uploadingPostPhotoToggle}/>
+                uploadPostPhoto={uploadPostPhoto}/>
             <Suspense>
                 <Posts profileData={profileData}
                        deletePostSuccess={deletePostSuccess}

@@ -22,6 +22,17 @@ body {
   background-color: #a8bbbf;
 }
 
+#spinner {
+  position: absolute;
+  left: calc(50% - 100px);
+  top: calc(50% - 100px);
+  svg {
+    margin: auto;
+    display: block;
+    shape-rendering: auto;
+  }
+}
+
 @media screen and (min-width: 991px) {
   .app-container {
     background-color: #f8f9fa;
