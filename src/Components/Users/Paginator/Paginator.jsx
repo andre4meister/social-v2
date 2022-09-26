@@ -1,8 +1,9 @@
 import './Paginator.scss';
 import left from '../../../icons/angle-left.png';
 import right from '../../../icons/angle-right.png';
+import Preloader from "../../common/Preloader";
 
-const Paginator = ({totalCount, count, onPageChanged, currentPage}) => {
+const Paginator = ({totalCount, count, onPageChanged, currentPage, isFetchingNewUsers}) => {
     let pagesCount = Math.ceil(totalCount / count);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -18,26 +19,35 @@ const Paginator = ({totalCount, count, onPageChanged, currentPage}) => {
     }
 
     return (
-      <ul className={'pagination justify-content-center'}>
-          <li>
-              <img className={(currentPage === 1 || currentPage === pages.length) ?
-                  'disabled-arrow' :
-                  'active-arrow'}
-                  src={left} onClick={() => onArrowClick(true, currentPage)}/>
-          </li>
-          {pages.map( (p) => {
-              if((p < currentPage && p > currentPage-5)|| (p > currentPage && p < currentPage+5 )
-                  || p === pages.length || p === currentPage || p === 1) {
-                  return <li  key={p} className={ (p === currentPage) ? 'page-item active' : 'page-item'}
-                  onClick={() => onPageChanged(p)}>
-                      {p}
-                  </li>
-              }
-          })}
-          <li>
-              <img src={right} onClick={() => onArrowClick(false, currentPage)}/>
-          </li>
-      </ul>
+        <>
+            {isFetchingNewUsers || !totalCount
+                ?
+                <Preloader/>
+                :
+                <ul className={'pagination justify-content-center'}>
+                    <li>
+                        <img className={(currentPage === 1 || currentPage === pages.length) ?
+                            'disabled-arrow' :
+                            'active-arrow'}
+                             alt='Previous'
+                             src={left} onClick={() => onArrowClick(true, currentPage)}/>
+                    </li>
+                    {pages.map( (p) => {
+                        if((p < currentPage && p > currentPage-5)|| (p > currentPage && p < currentPage+5 )
+                            || p === pages.length || p === currentPage || p === 1) {
+                            return <li className={ (p === currentPage) ? 'page-item active' : 'page-item'}
+                                       key={p}
+                                       onClick={() => onPageChanged(p)}>
+                                {p}
+                            </li>
+                        }
+                    })}
+                    <li>
+                        <img src={right} alt='Next' onClick={() => onArrowClick(false, currentPage)}/>
+                    </li>
+                </ul>
+            }
+        </>
   )
 }
 export default Paginator;

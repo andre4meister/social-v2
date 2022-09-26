@@ -77,6 +77,7 @@ export const setCurrentPageSuccess = (currentPage) => ({type: SET_CURRENT_PAGE, 
 export const setUsersSuccess = (users) => ({type: SET_USERS, users});
 export const isFetchingNewUsersToggle = (isFetchingStatus) => ({type: ISFETCHING_NEW_USERS, isFetchingStatus})
 
+
 export const setUsers = (currentPage, count, friend, sidebar) => async (dispatch) => {
     dispatch(isFetchingNewUsersToggle(true))
     let response = await usersAPI.getUsers(currentPage, count, friend);

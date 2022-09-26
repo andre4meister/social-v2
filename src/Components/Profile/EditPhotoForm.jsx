@@ -13,6 +13,7 @@ const EditPhotoForm = ({updateProfilePhoto, setPhotoEditMode}) => {
 
     return (
         <div className={'editing-photo-form easy-form'}>
+            <p>x</p>
             <h2>Change profile photo</h2>
             <input type={"file"} name={"file-1[]"} id={"file-1"} className={"inputfile inputfile-1"}
                    data-multiple-caption={"{count} files selected"} onChange={ (e) => setSelectedFile(e.target.files[0])}/>

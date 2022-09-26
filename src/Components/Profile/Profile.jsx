@@ -63,11 +63,11 @@ const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,up
                            />
                   </span>}
               </div>
-              { infoEditMode && <EditProfileForm updateProfileInfo={updateProfileInfo} userId={params.userId}
+              { infoEditMode && (!photoEditMode && !statusEditMode) && <EditProfileForm updateProfileInfo={updateProfileInfo} userId={params.userId}
                                                  profileData={profileData}/>}
-              { photoEditMode && <EditPhotoForm updateProfilePhoto={updateProfilePhoto}
+              { photoEditMode && (!infoEditMode && !statusEditMode) && <EditPhotoForm updateProfilePhoto={updateProfilePhoto}
                                                 setPhotoEditMode={setPhotoEditMode}/>}
-              { statusEditMode && <EditStatusForm updateStatus={updateStatus} /> }
+              { statusEditMode && (!photoEditMode && !infoEditMode) && <EditStatusForm updateStatus={updateStatus} /> }
           </div>
       </div>
   )

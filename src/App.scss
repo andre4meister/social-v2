@@ -33,7 +33,7 @@ body {
   }
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (min-width: 990px) {
   .app-container {
     background-color: #f8f9fa;
     width: 100%;
@@ -229,13 +229,6 @@ body {
 
 @media screen and (max-width: 640px) {
   .content-container {
-    width: 90%;
-  }
-
-}
-
-@media screen and (max-width: 640px) {
-  .content-container {
     width: 98%;
     height: 310px;
   }
@@ -257,5 +250,4 @@ body {
     width: 15px;
     height: 15px;
   }
-
 }

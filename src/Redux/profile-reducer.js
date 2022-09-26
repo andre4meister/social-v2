@@ -17,7 +17,8 @@ const initialState = {
     followers: 195,
     following: 187,
     status: null,
-    data: null
+    data: null,
+    isFetchingPostPhoto: false
 };
 
 const ProfileReducer = (state = initialState, action) => {
