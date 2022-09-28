@@ -115,9 +115,10 @@ body {
     }
   }
   .blue-button {
-    margin: 3px 0 0 0vw;
+    margin: 3px 0 0 0;
     max-height: 5vh;
     max-width: 10vw;
+    min-width: max-content;
     padding-bottom: 25px;
     color: white;
     background-color: #0d6efd;

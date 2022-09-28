@@ -11,9 +11,7 @@ const SocialMedia = React.lazy( () => import('./SocialMedia'));
 
 
 const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,updateProfilePhoto,updateStatus}) => {
-    const [infoEditMode, setInfoEditMode] = useState(false);
-    const [photoEditMode, setPhotoEditMode] = useState(false);
-    const [statusEditMode, setStatusEditMode] = useState(false);
+    const [editMode, setEditMode] = useState(null);
 
 
     if (!profileData) {
@@ -24,7 +22,7 @@ const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,up
   return (
       <div className={'content-container'}>
           <div className={'profile-info'}>
-              { !(infoEditMode || photoEditMode || statusEditMode) && <img className={'large-photo'} alt={'big'}
+              { editMode === null && <img className={'large-photo'} alt={'big'}
                    src={profileData.photos.large}/> }
                   <Suspense>
                       <SocialMedia contacts={contacts}/>
@@ -48,26 +46,26 @@ const Profile = ({profileData,status,authUserProfile,updateProfileInfo,params,up
                   </div>
               <div className={'editing-btns'}>
                   {authUserProfile && <span className={'edit-profile info-edit'}
-                                            onClick={ () => setInfoEditMode(!infoEditMode)}>Edit profile info
+                                            onClick={ () => setEditMode('edit-info')}>Edit profile info
                       <img  src={pencil} alt={'edit profile'}
                            />
                   </span>}
                   {authUserProfile && <span className={'edit-profile photo-edit'}
-                                            onClick={ () => setPhotoEditMode(!photoEditMode)}>Update photo
+                                            onClick={ () => setEditMode('edit-photo')}>Update photo
                       <img  src={portrait} alt={'edit user`s avatar'}
                            />
                   </span>}
                   {authUserProfile && <span className={'edit-profile status-edit'}
-                                            onClick={ () => setStatusEditMode(!statusEditMode)}>Change status
+                                            onClick={ () => setEditMode('edit-status')}>Change status
                       <img  src={document} alt={'edit user`s status'}
                            />
                   </span>}
               </div>
-              { infoEditMode && (!photoEditMode && !statusEditMode) && <EditProfileForm updateProfileInfo={updateProfileInfo} userId={params.userId}
-                                                 profileData={profileData}/>}
-              { photoEditMode && (!infoEditMode && !statusEditMode) && <EditPhotoForm updateProfilePhoto={updateProfilePhoto}
-                                                setPhotoEditMode={setPhotoEditMode}/>}
-              { statusEditMode && (!photoEditMode && !infoEditMode) && <EditStatusForm updateStatus={updateStatus} /> }
+              { editMode === 'edit-info' && <EditProfileForm updateProfileInfo={updateProfileInfo} userId={params.userId}
+                                                 profileData={profileData} setEditMode={setEditMode}/>}
+              { editMode === 'edit-photo' && <EditPhotoForm updateProfilePhoto={updateProfilePhoto}
+                                                            setEditMode={setEditMode}/>}
+              { editMode === 'edit-status' && <EditStatusForm updateStatus={updateStatus} setEditMode={setEditMode} /> }
           </div>
       </div>
   )

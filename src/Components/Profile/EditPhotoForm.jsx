@@ -2,18 +2,18 @@ import React, {useState} from 'react';
 import BlueButton from "../common/BlueButton";
 import './EditForms.scss';
 
-const EditPhotoForm = ({updateProfilePhoto, setPhotoEditMode}) => {
+const EditPhotoForm = ({updateProfilePhoto, setEditMode}) => {
     const [selectedFile, setSelectedFile] = useState(null);
 
 
     const onPhotoEditSubmit = () => {
         updateProfilePhoto(selectedFile)
-        setPhotoEditMode(false);
+        setEditMode(null);
     }
 
     return (
         <div className={'editing-photo-form easy-form'}>
-            <p>x</p>
+            <button className={'btn-close'} onClick={ () => setEditMode(null)}></button>
             <h2>Change profile photo</h2>
             <input type={"file"} name={"file-1[]"} id={"file-1"} className={"inputfile inputfile-1"}
                    data-multiple-caption={"{count} files selected"} onChange={ (e) => setSelectedFile(e.target.files[0])}/>
